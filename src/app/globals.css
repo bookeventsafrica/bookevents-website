@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@font-face {
+  font-family: "Moderat";
+  src: url('/fonts/Moderat-Regular.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Bold */
+@font-face {
+  font-family: 'Moderat';
+  src: url('/fonts/Moderat-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* Italic */
+@font-face {
+  font-family: 'Moderat';
+  src: url('/fonts/Moderat-Regular-Italic.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+
+/* Bold Italic */
+@font-face {
+  font-family: 'Moderat';
+  src: url('/fonts/Moderat-Bold-Italic.ttf');
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+body {
+  scroll-behavior: smooth;
+
+  /* color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+    font-family: 'Moderat' , "Helvetica Neue", sans-serif;
+
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* font-family: 'League Spartan', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif; */
+}
+
+
+.circleText {
+    /* width: 110px; */
+    @apply -bottom-3 ml-2;
+    z-index: 0;
+}
+
+
+.footer__socials>svg {
+  @apply text-primary-800;
+  cursor: pointer;
+}
+
+.event__grid {
+  display: grid;
+  place-items: baseline start;
+  gap: 24px 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (max-width: 768px) {
+   .zoom-sm {
+    zoom: .5;
+   }
+}

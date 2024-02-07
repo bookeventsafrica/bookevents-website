@@ -4,11 +4,13 @@ import Image from "next/image";
 import Button from "./components/button";
 import Footer from "./components/footer";
 import CircleSvg from '/public/svg/circle.svg';
+import ArrowDown from '/public/svg/menu-arrow.svg';
 import EventSection from "./components/sections/events";
 import Search from "./components/search";
+import CancelIcon from "/public/svg/cancel.svg";
+
 import { useState } from "react";
-import { FlutterWaveButton } from "flutterwave-react-v3";
-import CustomFlutterWaveButton from "./components/flutterwave-button";
+
 
 export default function Home() {
 
@@ -38,12 +40,16 @@ export default function Home() {
               <Button variant="primary" className="rounded-[8px] text-[16px] px-[24px] py-[10px]">Sign Up</Button>
             </div>
             {/* <HamburgerIcon onClick={toggleMenu} /> */}
-            <div onClick={toggleMenu} className="flex md:hidden">Icon-{ }</div>
+            <div onClick={toggleMenu} className="flex md:hidden cursor-pointer">
+              <ArrowDown className="text-primary-800" />
+            </div>
           </nav>
 
           <div className={`fixed top-0 left-0 w-full overflow-hidden  bg-white z-50 py-2 shadow ${isMenuOpen ? '' : 'hidden'}`}>
-            <div className="flex md:items-center mb-5">
+            <div className="flex justify-between items-center mb-5 px-4">
               <Image src="/logo.png" alt="bookEventsAfrica_logo" width={150} height={150} />
+              <CancelIcon className="text-primary-800 cursor-pointer" onClick={toggleMenu} />
+
             </div>
             <ul className="px-5 flex flex-col md:justify-center md:text-center text-primary-800 gap-10">
               <li><a href="/">Discover</a></li>

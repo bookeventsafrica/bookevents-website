@@ -4,7 +4,7 @@ import Image from "next/image";
 import Button from "../../components/button";
 import Footer from "../../components/footer";
 import FavoriteSVG from '/public/svg/favorite.svg';
-import { FormEvent, Fragment, useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import EventSection from "../../components/sections/events";
 import LocationSVG from 'public/svg/map-pin.svg'
 import CalendarSVG from 'public/svg/calendar.svg'
@@ -15,7 +15,7 @@ import CustomFlutterWaveButton from "@/components/flutterwave-button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-export enum EventType {
+enum EventType {
     ONLINE = 'ONLINE',
     PHYSICAL = 'PHYSICAL',
 }
@@ -47,7 +47,7 @@ export interface IEvent {
 
 
 // Yup schema to validate the form
-export const schema = Yup.object().shape({
+const schema = Yup.object().shape({
     quantity: Yup.number().required().min(1, 'Quantity must be greater than 0'),
     email: Yup.string().required('Please Email is required').email('Email must be valid'),
 });
@@ -238,6 +238,9 @@ export default function Home() {
                                                 email={values.email}
                                                 amount={values.quantity * selectedTicket.price!}
                                                 title={'Christmas party'}
+                                                ticketId={'2321323213'}
+                                                eventId={'12312'}
+                                                qty={values.quantity}
                                             />
                                         </form>
 

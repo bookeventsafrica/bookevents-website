@@ -136,7 +136,7 @@ export default function Home() {
                         <div className="flex-1">
 
                             <div
-                                className="zoom-sm object-cover object-[center_top] bg-no-repeat w-full h-screen"
+                                className="zoom-sm object-cover object-[center_top] bg-no-repeat w-full h-[700px] md:h-screen"
                                 style={{
                                     background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(/img/christmas.png)'
                                 }}

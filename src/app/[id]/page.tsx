@@ -229,20 +229,21 @@ export default function Home() {
                                                 </div>
                                             </div>
 
-                                            <Button className="w-full rounded-sm" onClick={() => {
-                                                if (selectedTicket.ticketPlan !== TicketPlan.FREE) {
-                                                    return flutterWaveRef.current && flutterWaveRef.current.click()
-                                                }
+                                            {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm" onClick={() => {
+                                                // if (selectedTicket.ticketPlan !== TicketPlan.FREE) {
+                                                //     return flutterWaveRef.current && flutterWaveRef.current.click()
+                                                // }
                                                 //handle Free ticket
-                                            }} disabled={!isValid || !dirty}>Book Now</Button>
-                                            <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3 hidden" ref={flutterWaveRef}
+                                            }} disabled={!isValid || !dirty}>Book Now</Button>}
+
+                                            {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton disabled={!isValid || !dirty} className="rounded-sm w-full bg-primary-800 text-white p-3" ref={flutterWaveRef}
                                                 email={values.email}
                                                 amount={values.quantity * selectedTicket.price!}
                                                 title={'Christmas party'}
                                                 ticketId={'2321323213'}
                                                 eventId={'12312'}
                                                 qty={values.quantity}
-                                            />
+                                            />}
                                         </form>
 
                                     </div>

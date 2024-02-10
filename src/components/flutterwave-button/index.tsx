@@ -1,27 +1,29 @@
 
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
+import { forwardRef } from "react";
 
-export default function CustomFlutterWaveButton () {
+export default forwardRef(function CustomFlutterWaveButton({ amount, email, title, ...props }: any, ref) {
+
 
     const config = {
         public_key: process.env.NEXT_PUBLIC_PUBLIC_KEY_TEST ?? '',
         tx_ref: 'qwqew',
-        amount: 10000,
+        amount,
         currency: "NGN",
         payment_options: "card,mobilemoney,ussd",
         customer: {
-            email: 'bookevents@gmail.com',
-            phone_number: '+234509q23812341',
-            name: 'UKPAI CHUKWUEMEKA',
+            email: email,
+            phone_number: '',
+            name: ''
         },
         customizations: {
-            title: "my Payment Title",
-            description: "Payment for items in cart",
+            title,
+            description: "",
             logo: "https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg",
         },
     };
     const handleFlutterPayment = useFlutterwave(config);
-    return <button className="bg-primary-800 text-white p-2 rounded-[4px]" onClick={() =>
+    return <button className="" {...props} ref={ref} onClick={() =>
         handleFlutterPayment({
             callback: (response) => {
                 closePaymentModal();
@@ -29,4 +31,4 @@ export default function CustomFlutterWaveButton () {
             onClose: () => { },
         })}>Pay Now</button>
 
-}
+})

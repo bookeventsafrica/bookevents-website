@@ -1,19 +1,20 @@
 "use client"
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import Button from "./components/button";
-import Footer from "./components/footer";
+import Button from "../components/button";
+import Footer from "../components/footer";
 import CircleSvg from '/public/svg/circle.svg';
 import ArrowDown from '/public/svg/menu-arrow.svg';
-import EventSection from "./components/sections/events";
-import Search from "./components/search";
+import EventSection from "../components/sections/events";
+import Search from "../components/search";
 import CancelIcon from "/public/svg/cancel.svg";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "@/provider";
 
 
 export default function Home() {
-
+  let {  modalOpen } = useContext(AppContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {

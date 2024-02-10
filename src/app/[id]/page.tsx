@@ -1,18 +1,19 @@
 "use client"
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import Button from "../components/button";
-import Footer from "../components/footer";
+import Button from "../../components/button";
+import Footer from "../../components/footer";
 import FavoriteSVG from '/public/svg/favorite.svg';
-import { useState } from "react";
-import EventSection from "../components/sections/events";
+import { FormEvent, Fragment, useRef, useState } from "react";
+import EventSection from "../../components/sections/events";
 import LocationSVG from 'public/svg/map-pin.svg'
 import CalendarSVG from 'public/svg/calendar.svg'
-import Ticket, { ITicket, TicketPlan, TicketType } from "../components/ticket";
+import Ticket, { ITicket, TicketPlan, TicketType } from "../../components/ticket";
 import CancelIcon from "/public/svg/cancel.svg";
 import ArrowDown from '/public/svg/menu-arrow.svg';
-import Modal from "../components/modal";
-
+import CustomFlutterWaveButton from "@/components/flutterwave-button";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export enum EventType {
     ONLINE = 'ONLINE',
@@ -45,6 +46,12 @@ export interface IEvent {
 
 
 
+// Yup schema to validate the form
+export const schema = Yup.object().shape({
+    quantity: Yup.number().required().min(1, 'Quantity must be greater than 0'),
+    email: Yup.string().required('Please Email is required').email('Email must be valid'),
+});
+
 
 export default function Home() {
 
@@ -55,6 +62,31 @@ export default function Home() {
         setIsMenuOpen(!isMenuOpen);
     };
 
+
+    // const handle = (e: FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault()
+    // }
+
+    // Formik hook to handle the form state
+    const formik = useFormik({
+        initialValues: {
+            email: "",
+            quantity: 1,
+        },
+
+        // Pass the Yup schema to validate the form
+        validationSchema: schema,
+
+        // Handle form submission
+        onSubmit: async ({ email, quantity }) => {
+            // Make a request to your backend to store the data
+        },
+    });
+
+    // Destructure the formik object
+    const { errors, touched, values, handleChange, handleSubmit, dirty, handleBlur, isValid } = formik;
+
+    const flutterWaveRef = useRef<HTMLButtonElement>(null)
     return (
         <>
             {/* banner */}
@@ -164,10 +196,54 @@ export default function Home() {
                                 }]}
                                     selectedTicket={selectedTicket!} select={(ticket) => setSelectedTicket(ticket)} />
                             </div>
-                            <hr className="h-[4px] text-[#E0E0E0] mt-4 mb-10" />
-                            <div>
-                                <Button className="rounded-[4px]" disabled={true}> Book now</Button>
-                            </div>
+                            {selectedTicket?._id &&
+                                <Fragment>
+                                    <hr className="h-[4px] text-[#E0E0E0] my-4" />
+                                    <div>
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="flex flex-col mb-3">
+                                                <label className="font-light text-[15px] mb-1" htmlFor="email">Email</label>
+                                                <input type="email" className="bg-[#fff] border rounded-sm p-2  border-1 border-primary-800 outline-none" placeholder="bookevents@gmail.com" id="email" name="email" value={values.email}
+                                                    onBlur={handleBlur}
+                                                    onChange={handleChange} />
+                                                {errors.email && touched.email && <span className="text-[red] font-light text-[12px] mt-1">{errors.email}</span>}
+                                            </div>
+
+                                            <div className="flex flex-col mb-5">
+                                                <label className="font-light text-[15px] mb-1" htmlFor="quantity">Quantity</label>
+                                                <input type="number" className="bg-[#fff] border rounded-sm p-2 border-1 border-primary-800 outline-none" id="quantity" name='quantity' value={values.quantity}
+                                                    onBlur={handleBlur}
+                                                    onChange={handleChange} />
+                                                {errors.quantity && touched.quantity && <span className="text-[red] font-light text-[12px] mt-1">{errors.quantity}</span>}
+                                            </div>
+                                            <div>
+                                                <div className="flex justify-between mb-3">
+                                                    <h3 className="font-light uppercase text-[12px]">Quantity</h3>
+                                                    <h6 className="font-light text-[18px]">{values.quantity}</h6>
+                                                </div>
+                                                <div className="flex justify-between mb-5">
+                                                    <h3 className="font-light uppercase text-[12px]">Total</h3>
+                                                    {selectedTicket.ticketPlan == TicketPlan.PAID && <h6 className="font-light text-[18px]" >{values.quantity * selectedTicket.price!}</h6>}
+                                                    {selectedTicket.ticketPlan == TicketPlan.FREE && <h6 className="font-light text-[18px]" >0</h6>}
+                                                </div>
+                                            </div>
+
+                                            <Button className="w-full rounded-sm" onClick={() => {
+                                                if (selectedTicket.ticketPlan !== TicketPlan.FREE) {
+                                                    flutterWaveRef.current && flutterWaveRef.current.click()
+                                                }
+                                                //handle Free ticket
+                                            }} disabled={!isValid || !dirty}>Book Now</Button>
+                                            <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3 hidden" ref={flutterWaveRef}
+                                                email={values.email}
+                                                amount={values.quantity * selectedTicket.price!}
+                                                title={'Christmas party'}
+                                            />
+                                        </form>
+
+                                    </div>
+                                </Fragment>
+                            }
                         </div>
                     </div>
 

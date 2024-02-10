@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 
-import { cls } from '../../utils/index'
+import { cls } from '../../app/utils/index'
 
 
 interface ButtonClass {

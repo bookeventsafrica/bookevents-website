@@ -80,6 +80,7 @@ export default function Home() {
         // Handle form submission
         onSubmit: async ({ email, quantity }) => {
             // Make a request to your backend to store the data
+
         },
     });
 
@@ -230,7 +231,7 @@ export default function Home() {
 
                                             <Button className="w-full rounded-sm" onClick={() => {
                                                 if (selectedTicket.ticketPlan !== TicketPlan.FREE) {
-                                                    flutterWaveRef.current && flutterWaveRef.current.click()
+                                                    return flutterWaveRef.current && flutterWaveRef.current.click()
                                                 }
                                                 //handle Free ticket
                                             }} disabled={!isValid || !dirty}>Book Now</Button>

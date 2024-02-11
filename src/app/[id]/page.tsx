@@ -204,7 +204,7 @@ export default function Home() {
                                         <form onSubmit={handleSubmit}>
                                             <div className="flex flex-col mb-3">
                                                 <label className="font-light text-[15px] mb-1" htmlFor="email">Email</label>
-                                                <input type="email" className="bg-[#fff]  rounded-sm p-2 outline-none" placeholder="bookevents@gmail.com" id="email" name="email" value={values.email}
+                                                <input type="email" className="bg-[#fff] border rounded-sm p-2  border-1 border-primary-[#959595] outline-none" placeholder="bookevents@gmail.com" id="email" name="email" value={values.email}
                                                     onBlur={handleBlur}
                                                     onChange={handleChange} />
                                                 {errors.email && touched.email && <span className="text-[red] font-light text-[12px] mt-1">{errors.email}</span>}
@@ -212,7 +212,7 @@ export default function Home() {
 
                                             <div className="flex flex-col mb-5">
                                                 <label className="font-light text-[15px] mb-1" htmlFor="quantity">Quantity</label>
-                                                <input type="number" className="bg-[#fff]  rounded-sm p-2 outline-none" id="quantity" name='quantity' value={values.quantity}
+                                                <input type="number" className="bg-[#fff] border rounded-sm p-2 border-1 border-primary-[#959595] outline-none" id="quantity" name='quantity' value={values.quantity}
                                                     onBlur={handleBlur}
                                                     onChange={handleChange} />
                                                 {errors.quantity && touched.quantity && <span className="text-[red] font-light text-[12px] mt-1">{errors.quantity}</span>}

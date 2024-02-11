@@ -236,7 +236,7 @@ export default function Home() {
                                                 //handle Free ticket
                                             }} disabled={!isValid || !dirty}>Book Now</Button>}
 
-                                            {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton disabled={!isValid || !dirty} className="rounded-sm w-full bg-primary-800 text-white p-3" ref={flutterWaveRef}
+                                            {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton disabled={!isValid || !dirty} className="rounded-sm w-full bg-primary-800 text-white p-3"
                                                 email={values.email}
                                                 amount={values.quantity * selectedTicket.price!}
                                                 title={'Christmas party'}

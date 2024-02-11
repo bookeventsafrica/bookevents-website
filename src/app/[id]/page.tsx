@@ -136,7 +136,7 @@ export default function Home() {
                         <div className="flex-1">
 
                             <div
-                                className="zoom-sm object-cover object-[center_top] bg-no-repeat w-full h-[700px] md:h-screen"
+                                className="zoom-sm object-cover object-[center_top] bg-no-repeat w-full h-screen"
                                 style={{
                                     background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(/img/christmas.png)'
                                 }}
@@ -229,21 +229,20 @@ export default function Home() {
                                                 </div>
                                             </div>
 
-                                            {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm" onClick={() => {
-                                                // if (selectedTicket.ticketPlan !== TicketPlan.FREE) {
-                                                //     return flutterWaveRef.current && flutterWaveRef.current.click()
-                                                // }
+                                            <Button className="w-full rounded-sm" onClick={() => {
+                                                if (selectedTicket.ticketPlan !== TicketPlan.FREE) {
+                                                    return flutterWaveRef.current && flutterWaveRef.current.click()
+                                                }
                                                 //handle Free ticket
-                                            }} disabled={!isValid || !dirty}>Book Now</Button>}
-
-                                            {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton disabled={!isValid || !dirty} className="rounded-sm w-full bg-primary-800 text-white p-3"
+                                            }} disabled={!isValid || !dirty}>Book Now</Button>
+                                            <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3 hidden" ref={flutterWaveRef}
                                                 email={values.email}
                                                 amount={values.quantity * selectedTicket.price!}
                                                 title={'Christmas party'}
                                                 ticketId={'2321323213'}
                                                 eventId={'12312'}
                                                 qty={values.quantity}
-                                            />}
+                                            />
                                         </form>
 
                                     </div>

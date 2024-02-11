@@ -85,3 +85,7 @@ body {
     zoom: .5;
    }
 }
+
+button[disabled]{
+ opacity: .5
+}

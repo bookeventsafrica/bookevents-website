@@ -1,5 +1,3 @@
-import Bottom from "./bottom"
-import Top from "./top"
 
 
 export default function Item() {
@@ -27,7 +25,7 @@ export default function Item() {
                     <h5 className="font-[700] text-[16px] text-primary-800 m-0">JAN</h5>
                     <h3 className="text-[#000] font-[700] text-[25px] m-0">05</h3>
 
-                    <h6 className="text-primary-800 text-[12px]">9:30 PM</h6>
+                    <h6 className="!text-primary-800 text-[12px]">9:30 PM</h6>
                 </div>
 
                 <div className="flex flex-col gap-[12px] w-[200px]">

@@ -44,7 +44,8 @@ function TicketArea({ event }: { event: IEventTicket }) {
     const { errors, touched, values, handleChange, handleSubmit, dirty, handleBlur, isValid } = form;
 
     const flutterWaveRef = useRef<HTMLButtonElement>(null)
-    const [selectedTicket, setSelectedTicket] = useState<ITicket>()
+    const [selectedTicket, setSelectedTicket] = useState<ITicket>({} as ITicket)
+
     return <>
         <div>
             {event.tickets && <Ticket tickets={event.tickets}
@@ -98,7 +99,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             description={event.details}
                             close={() => {
                                 setSelectedTicket({} as ITicket);
-                                form.setValues({ email: '', quantity: 1 })
+                                form.setValues({ email: '', quantity: 1 });
                             }}
                         />
                     </form>

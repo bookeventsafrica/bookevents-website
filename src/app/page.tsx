@@ -17,7 +17,7 @@ export default function Home() {
   const [events, setEvents] = useState([])
   useEffect(() => {
     fetch()
-    console.log(process.env);
+    console.log(process.env.NEXT_PUBLIC_API_DEV);
   }, [])
 
   const fetch = async () => {

@@ -37,7 +37,9 @@ function Navbar() {
 
         <div className={`fixed top-0 left-0 w-full overflow-hidden  bg-white z-50 py-2 shadow ${isMenuOpen ? '' : 'hidden'}`}>
             <div className="flex justify-between items-center mb-5 px-4">
-                <Image src="/logo.png" alt="bookEventsAfrica_logo" width={150} height={150} />
+                <Link href={'/'}>
+                    <Image src="/logo.png" alt="bookEventsAfrica_logo" width={150} height={150} />
+                </Link>
                 <CancelIcon className="text-primary-800 cursor-pointer" onClick={toggleMenu} />
 
             </div>

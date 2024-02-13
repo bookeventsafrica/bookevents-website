@@ -40,6 +40,7 @@ export interface IEvent {
 
 
 import { Metadata } from "next";
+import TicketArea from "@/components/ticketArea";
 
 interface Props {
     params: { id: string }
@@ -60,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: event.name,
         description: event.details,
         openGraph: {
-          images: event.image
+            images: event.image
         },
     };
 }
@@ -126,7 +127,7 @@ export default async function Home({ params }: { params: { id: string } }) {
 
                             </div>
 
-
+                            <TicketArea event={event} />
                         </div>
                     </div>}
 

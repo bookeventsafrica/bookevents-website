@@ -20,7 +20,7 @@ const schema = Yup.object().shape({
     email: Yup.string().required('Please Email is required').email('Email must be valid'),
 });
 
-function TicketArea({ tickets, event }: any) {
+function TicketArea({ event }: { event: IEventTicket }) {
 
 
     // Formik hook to handle the form state
@@ -47,7 +47,7 @@ function TicketArea({ tickets, event }: any) {
     const [selectedTicket, setSelectedTicket] = useState<ITicket>()
     return <>
         <div>
-            {tickets && <Ticket tickets={tickets}
+            {event.tickets && <Ticket tickets={event.tickets}
                 selectedTicket={selectedTicket!} select={(ticket) => setSelectedTicket(ticket)} />}
         </div>
         {selectedTicket?._id &&
@@ -106,3 +106,6 @@ function TicketArea({ tickets, event }: any) {
             </Fragment>}
     </>
 }
+
+
+export default TicketArea

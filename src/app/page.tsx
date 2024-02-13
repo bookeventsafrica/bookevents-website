@@ -9,7 +9,6 @@ import Search from "../components/search";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
 import axios from "axios";
-import { API } from "@/utils";
 
 
 export default function Home() {
@@ -17,12 +16,11 @@ export default function Home() {
   const [events, setEvents] = useState([])
   useEffect(() => {
     fetch()
-    console.log(process.env.NEXT_PUBLIC_API_DEV);
   }, [])
 
   const fetch = async () => {
     try {
-      const { data } = await axios.get(`${API}/event/?published=1`)
+      const { data } = await axios.get(`${process.env.NODE_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/?published=1`)
       setEvents(data.data);
 
     } catch (err) {

@@ -13,7 +13,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import moment from "moment";
-import { API, formatMoney } from "@/utils";
+import { formatMoney } from "@/utils";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/navbar";
 
@@ -69,7 +69,7 @@ export default function Home({ params }: { params: { id: string } }) {
 
     const fetch = async () => {
         try {
-            const { data } = await axios.get(`${API}/event/${params.id}`)
+            const { data } = await axios.get(`${process.env.NODE_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${params.id}`)
             setEvent(data.length && data[0]);
 
         } catch (err) {
@@ -210,7 +210,7 @@ export default function Home({ params }: { params: { id: string } }) {
                                                 description={event.details}
                                                 close={() => {
                                                     setSelectedTicket({} as ITicket);
-                                                    form.setValues({ email: '' , quantity: 1})
+                                                    form.setValues({ email: '', quantity: 1 })
                                                 }}
                                             />
                                         </form>

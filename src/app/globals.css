@@ -81,9 +81,9 @@ body {
 }
 
 @media (max-width: 768px) {
-   .zoom-sm {
+   /* .zoom-sm {
     zoom: .5;
-   }
+   } */
 }
 
 button[disabled]{

@@ -2,7 +2,7 @@
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import { forwardRef } from "react";
 
-export default forwardRef(function CustomFlutterWaveButton({ amount, email, title, ticketId, eventId, qty, ...props }: any, ref) {
+export default forwardRef(function CustomFlutterWaveButton({ amount, email, title, ticketId, eventId, qty, description, ...props }: any, ref) {
 
     const config = {
         public_key: process.env.NEXT_PUBLIC_PUBLIC_KEY_TEST ?? '',
@@ -17,7 +17,7 @@ export default forwardRef(function CustomFlutterWaveButton({ amount, email, titl
         },
         customizations: {
             title,
-            description: "",
+            description,
             logo: "https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg",
         },
     };
@@ -27,7 +27,9 @@ export default forwardRef(function CustomFlutterWaveButton({ amount, email, titl
             callback: (response) => {
                 closePaymentModal();
             },
-            onClose: () => { },
+            onClose: () => {
+                props.close()
+            },
         })}>Pay Now</button>
 
 })

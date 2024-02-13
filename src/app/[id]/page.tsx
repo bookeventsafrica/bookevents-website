@@ -69,7 +69,7 @@ export default function Home({ params }: { params: { id: string } }) {
 
     const fetch = async () => {
         try {
-            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${params.id}`)
+            const { data } = await axios.get(`${process.env.VERCEL_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${params.id}`)
             setEvent(data.length && data[0]);
 
         } catch (err) {

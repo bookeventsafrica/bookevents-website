@@ -18,7 +18,7 @@ export default function Discover(props: { searchParams: { s: string; }; }) {
 
     const fetch = async () => {
         try {
-            const { data } = await axios.get(`${process.env.VERCEL_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/?search=${props.searchParams.s}`)
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/?search=${props.searchParams.s}`)
             setEvents(data.data);
 
         } catch (err) {

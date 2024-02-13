@@ -6,23 +6,23 @@ interface Props  {
 }
 
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  // read route params
-  const url = `${process.env.VERCEL_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${params.id}`
+// export async function generateMetadata({ params }: any): Promise<Metadata> {
+//   // read route params
+//   const url = `${process.env.VERCEL_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${params.id}`
 
-  // fetch data
-  const [data] = await fetch(url).then((res) => res.json());
+//   // fetch data
+//   const [data] = await fetch(url).then((res) => res.json());
 
-    const event = data;
+//     const event = data;
 
-  return {
-    title: event.name,
-    description: event.details,
-    // openGraph: {
-    //   images: event.image
-    // },
-  };
-}
+//   return {
+//     title: event.name,
+//     description: event.details,
+//     // openGraph: {
+//     //   images: event.image
+//     // },
+//   };
+// }
 
 
 export default function AboutLayout({

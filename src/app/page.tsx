@@ -20,7 +20,6 @@ export default function Home() {
 
   const fetch = async () => {
     try {
-      console.log(process.env.NEXT_PUBLIC_ENV, process.env.NEXT_PUBLIC_API_DEV)
       const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/?published=1`)
       setEvents(data.data);
     } catch (err) {

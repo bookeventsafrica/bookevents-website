@@ -17,6 +17,7 @@ export default function Home() {
   const [events, setEvents] = useState([])
   useEffect(() => {
     fetch()
+    console.log(process.env);
   }, [])
 
   const fetch = async () => {

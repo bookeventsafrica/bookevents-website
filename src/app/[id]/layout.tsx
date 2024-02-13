@@ -1,3 +1,4 @@
+import { API } from "@/utils";
 import { Metadata } from "next";
 
 interface Props  {
@@ -8,7 +9,7 @@ interface Props  {
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   // read route params
-  const url = `${process.env.NEXT_PUBLIC_API}/event/${params.id}`
+  const url = `${API}/event/${params.id}`
 
   // fetch data
   const [data] = await fetch(url).then((res) => res.json());

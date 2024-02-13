@@ -9,6 +9,7 @@ import Search from "../components/search";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
 import axios from "axios";
+import { API } from "@/utils";
 
 
 export default function Home() {
@@ -20,7 +21,7 @@ export default function Home() {
 
   const fetch = async () => {
     try {
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}/event/?published=1`)
+      const { data } = await axios.get(`${API}/event/?published=1`)
       setEvents(data.data);
 
     } catch (err) {

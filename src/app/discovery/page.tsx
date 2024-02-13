@@ -7,6 +7,7 @@ import Search from "../../components/search";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
 import axios from "axios";
+import { API } from "@/utils";
 
 
 export default function Discover(props: { searchParams: { s: string; }; }) {
@@ -18,7 +19,7 @@ export default function Discover(props: { searchParams: { s: string; }; }) {
 
     const fetch = async () => {
         try {
-            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}/event/?search=${props.searchParams.s}`)
+            const { data } = await axios.get(`${API}/event/?search=${props.searchParams.s}`)
             setEvents(data.data);
 
         } catch (err) {

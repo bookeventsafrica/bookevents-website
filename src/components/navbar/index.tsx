@@ -49,11 +49,11 @@ function Navbar() {
             <ul className="px-5 flex flex-col md:justify-center md:text-center text-primary-800 gap-10">
                 <li><a href="/faq">FAQ</a></li>
                 <li><a href="/blog">BLOG</a></li>
-                <li><a href="/login">LOGIN</a></li>
+                <li><a href={appUrl}>LOGIN</a></li>
             </ul>
 
             <div className="px-5 my-5">
-                <Button variant="primary" className="rounded-[8px] text-[16px] px-[24px] py-[10px] w-full font-medium">Sign Up</Button>
+                <Button variant="primary" className="rounded-[8px] text-[16px] px-[24px] py-[10px] w-full font-medium" onClick={()=> router.push(appUrl!)}>Sign Up</Button>
             </div>
         </div>
     </header>

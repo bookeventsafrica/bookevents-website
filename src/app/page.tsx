@@ -20,7 +20,7 @@ export default function Home() {
 
   const fetch = async () => {
     try {
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/?published=1`)
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1`)
       setEvents(data.data);
     } catch (err) {
     }

@@ -53,15 +53,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const url = `${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${params.id}`
 
     // fetch data
-    const [data] = await fetch(url).then((res) => res.json());
-
-    const event = data;
+    const {data} = await axios.get(url);
+    const event = data.length ? data[0] : data;
 
     return {
-        title: event.name,
-        description: event.details,
+        title: event?.name,
+        description: event?.details,
         openGraph: {
-            images: event.image
+            images: event?.image
         },
     };
 }
@@ -69,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 async function getEventDetails(id: string) {
     const { data: event } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${id}`);
-    return event[0]
+    return event.length ? event[0] : event;
 }
 
 
@@ -100,7 +99,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                             <div className="flex justify-between items-center ">
 
                                 <h1 className="font-700 text-[20px] md:text-[30px]">{event?.name}</h1>
-                                <h3 className="text-primary-800 font-700 text-[14px] md:text-[24px] ">{event?.type}</h3>
+                                <h3 className="text-primary-800 font-400 text-[14px] ">{event?.type}</h3>
 
                             </div>
                             {/* <div className="flex justify-between items-center mt-[10px]">

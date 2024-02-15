@@ -8,6 +8,7 @@ import Ticket, { ITicket, TicketPlan } from "../ticket";
 import * as Yup from 'yup';
 
 import CustomFlutterWaveButton from '@/components/flutterwave-button';
+import axios from "axios";
 
 
 interface IEventTicket extends IEvent {
@@ -21,7 +22,7 @@ const schema = Yup.object().shape({
 });
 
 function TicketArea({ event }: { event: IEventTicket }) {
-
+    const [loading, setLoading] = useState(false)
 
     // Formik hook to handle the form state
     const form = useFormik({
@@ -35,8 +36,23 @@ function TicketArea({ event }: { event: IEventTicket }) {
 
         // Handle form submission
         onSubmit: async ({ email, quantity }) => {
+            console.log(selectedTicket)
             // Make a request to your backend to store the data
-
+            if (selectedTicket.ticketPlan == TicketPlan.FREE) {
+                //register
+                try {
+                    setLoading(true)
+                    await axios.post(`${process.env.NEXT_PUBLIC_ENV === 'development' ?
+                        process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/register`, {
+                        ticketId: selectedTicket._id, eventId: event._id, email, quantity,
+                    });
+                    setSelectedTicket({} as ITicket);
+                    setLoading(false)
+                    form.setValues({ email: '', quantity: 1 });
+                } catch (err) {
+                    setLoading(false);
+                }
+            }
         },
     });
 
@@ -45,6 +61,8 @@ function TicketArea({ event }: { event: IEventTicket }) {
 
     const flutterWaveRef = useRef<HTMLButtonElement>(null)
     const [selectedTicket, setSelectedTicket] = useState<ITicket>({} as ITicket)
+
+
 
     return <>
         <div>
@@ -83,13 +101,9 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             </div>
                         </div>
 
-                        <Button className="w-full rounded-sm p-3" onClick={() => {
-                            if (selectedTicket.ticketPlan !== TicketPlan.FREE) {
-                                return flutterWaveRef.current && flutterWaveRef.current.click()
-                            }
-                            //handle Free ticket
-                        }} disabled={!isValid || !dirty}>Book Now</Button>
-                        <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3 hidden" ref={flutterWaveRef}
+                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading} type={'submit'} >Book Now</Button>}
+                        {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3" ref={flutterWaveRef}
+                            disabled={!isValid || !dirty}
                             email={values.email}
                             amount={values.quantity * selectedTicket.price!}
                             title={event.name}
@@ -101,7 +115,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
                                 setSelectedTicket({} as ITicket);
                                 form.setValues({ email: '', quantity: 1 });
                             }}
-                        />
+                        />}
                     </form>
                 </div>
             </Fragment>}

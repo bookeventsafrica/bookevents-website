@@ -26,9 +26,9 @@ export default forwardRef(function CustomFlutterWaveButton({ amount, email, titl
         handleFlutterPayment({
             callback: (response) => {
                 closePaymentModal();
+                close()
             },
             onClose: () => {
-                close()
             },
         })}>Pay Now</button>
 

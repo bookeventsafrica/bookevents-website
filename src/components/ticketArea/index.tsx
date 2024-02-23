@@ -112,8 +112,8 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             qty={values.quantity}
                             description={event.details}
                             close={() => {
-                                setSelectedTicket({} as ITicket);
                                 form.setValues({ email: '', quantity: 1 });
+                                setSelectedTicket({} as ITicket);
                             }}
                         />}
                     </form>

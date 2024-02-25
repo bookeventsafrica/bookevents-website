@@ -43,10 +43,10 @@ export default function Home() {
             For all your event ticketing needs, from small gatherings to the large festivals, our event booking system has you covered
           </p>
 
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <Button variant="primary" className="font-medium text-[16px] rounded-[8px] py-[10px] px-[24px]">Create an Event</Button>
 
-          </div>
+          </div> */}
           {/*  */}
 
           <Search />

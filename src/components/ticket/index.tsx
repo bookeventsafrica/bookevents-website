@@ -45,7 +45,7 @@ export default function Ticket({ selectedTicket, select, tickets }: TicketProps)
 
         <div className="flex mt-2 gap-4 flex-wrap md:flex-row">
             {tickets.filter(ticket => ticket.available).map(ticket => {
-                return <div className={`${selectedTicket?._id == ticket._id && 'border-primary-800 border border-1.5'} flex flex-col justify-center bg-[#F1F1F1] p-3 text-center rounded-[4px]  w-[120px]`} key={ticket._id} onClick={() => select(ticket)}>
+                return <div className={`${selectedTicket?._id == ticket._id && 'border-primary-800 border border-1.5'} flex flex-col justify-center bg-[#F1F1F1] p-3 text-center rounded-[4px]  w-full md:w-[120px]`} key={ticket._id} onClick={() => select(ticket)}>
                     <p className="font-400 text-[12px]">{ticket.name}</p>
                     <p className="text-[14px] font-500">{formatMoney(ticket.price!) || ticket.ticketPlan}</p>
                     {ticket.admits && <p className="font-400 text-[12px]">Admits {ticket.admits ? ticket.admits : 1}</p>}

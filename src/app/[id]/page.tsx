@@ -93,7 +93,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 }}
 
                             ></div> */}
-                            {event?.image && <img src={event?.image} className="w-full" alt="" />}
+                            {event?.image && <img src={event?.image} className="w-full object-cover h-auto" alt="" width="100" height="100" />}
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between items-center ">

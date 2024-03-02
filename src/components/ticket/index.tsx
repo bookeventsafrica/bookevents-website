@@ -49,7 +49,7 @@ export default function Ticket({ selectedTicket, select, tickets }: TicketProps)
                     <p className="font-400 text-[12px]">{ticket.name}</p>
                    {ticket.price && <p className="text-[14px] font-500">{formatMoney(ticket.price!)}</p>}
                    {!ticket.price && <p className="text-[14px] font-500">{ticket.ticketPlan}</p>}
-                    <p className="font-400 text-[12px]">Admits {ticket.admits ? ticket.admits : 1}</p>
+                    <p className="font-400 text-[12px]">Admits {ticket?.admits ? ticket.admits : 1}</p>
                 </div>
             })}
 

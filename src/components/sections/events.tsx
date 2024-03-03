@@ -1,10 +1,7 @@
 'use client';
-
-import { Key, useEffect, useState } from "react";
 import Button from "../button";
-import Item from "../events/item";
-import axios from 'axios';
-import { IEvent } from "@/app/[id]/page";
+import Item from "../events";
+import { IEvent } from "@/utils";
 import { useRouter } from "next/navigation";
 
 export interface EventSection {

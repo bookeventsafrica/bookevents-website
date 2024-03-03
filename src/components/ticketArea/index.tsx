@@ -1,6 +1,5 @@
 'use client'
-import { IEvent } from "@/app/[id]/page";
-import { formatMoney } from "@/utils";
+import { formatMoney, IEvent } from "@/utils";
 import { useFormik } from "formik";
 import { Fragment, useRef, useState } from "react";
 import Button from "../button";

@@ -36,11 +36,11 @@ function FAQ() {
             })}
 
             <div className="w-full md:w-[708px] mx-auto mt-[30px] md:mt-[60px]">
-                <h4 className="text-center font-bold text-[30px] text-[#292D32]">Still have a question?</h4>
-                <p className="font-normal text-[20px] mt-[24px] text-[#292D32] text-center">If you cannot find the answer to the question on our FAQ, you can always {" "}
-                    <a href="mailto:support@bookevents.africa" className="text-primary-800 mx">
-                        contact us
-                    </a>. We will give you a response swiftly. </p>
+                <h4 className="text-center font-bold text-[25px] text-[#292D32]">Still have a question?</h4>
+                <p className="font-normal text-[18px] mt-[24px] text-[#292D32] text-center">If you cannot find the answer to the question on our FAQ, you can always {" "}
+                    contact at   <a href="mailto:support@bookevents.africa" className="text-primary-800 text-underline">
+                        support@bookevents.africa
+                    </a> . We will give you a response swiftly. </p>
             </div>
         </section>
 

@@ -25,8 +25,8 @@ function Navbar() {
 
         <nav className="flex gap-x-[24px] cursor-pointer flex-col md:flex-row md:items-center md:justify-end text-[16px] text-primary-800">
             <ul className="hidden md:flex gap-x-[40px] mb-4 md:mb-0">
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/blog">BLOG</a></li>
+                <li><a href="/faqs">FAQs</a></li>
+                <li><a href="/">BLOG</a></li>
                 <li><a href={appUrl}>LOGIN</a></li>
             </ul>
             <div className="hidden md:block mt-3 md:mt-0">
@@ -48,7 +48,7 @@ function Navbar() {
             </div>
             <ul className="px-5 flex flex-col md:justify-center md:text-center text-primary-800 gap-10">
                 <li><a href="/faq">FAQ</a></li>
-                <li><a href="/blog">BLOG</a></li>
+                <li><a href="/">BLOG</a></li>
                 <li><a href={appUrl}>LOGIN</a></li>
             </ul>
 

@@ -48,7 +48,8 @@ const config: Config = {
         500: "#E8B9DD",
         600: "#DDB2CE",
       },
-      red: colors.red
+      red: colors.red,
+      black: colors.black
     },
     container: {},
     content: {

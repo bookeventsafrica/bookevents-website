@@ -11,7 +11,7 @@ import Image from 'next/image';
 // </div>
 
 export default function Footer() {
-  return <footer className=" bg-black footer">
+  return <footer className=" bg-white footer">
     <div className="px-[2rem] py-[10px] md:px-[6.18rem] md:py-[41px] gap-[40px] md:gap-[164px] flex flex-col md:flex-row flex-wrap">
       <div className="">
         <Image src={'/logo.png'} alt="bookEventsAfrica_logo" width={200} height={64} />

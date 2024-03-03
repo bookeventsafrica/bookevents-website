@@ -17,7 +17,11 @@ export default function Item({ event, ...props }: { event: IEvent }) {
             <img src={event.image} alt="" className="h-[220px] w-full object-cover" />
         </a>
         <div className="top-0 px-[22px] py-[19px] absolute">
+<<<<<<< HEAD
+            <div className="bg-white py-[4px] px-[14px] rounded-[6px] text-[16px] font-[500] text-[#000]">
+=======
             <div className="bg-white py-[4px] px-2 rounded-[6px] text-[12px] font-light text-[#000] shadow-sm">
+>>>>>>> development
                 {event.type}
             </div>
 

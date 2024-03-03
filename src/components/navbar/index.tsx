@@ -14,7 +14,7 @@ function Navbar() {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const appUrl = process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_APP_API_DEV : process.env.NEXT_PUBLIC_APP_API_PROD;
+    const appUrl = process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_APP_API_DEV + '/auth' : process.env.NEXT_PUBLIC_APP_API_PROD + '/auth';
 
     return <header className="bg-white text-white justify-between  flex items-center  p-2 md:py-[14px] md:px-[90px]">
         <div className="flex md:items-center">

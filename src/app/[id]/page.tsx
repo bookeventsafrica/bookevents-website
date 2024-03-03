@@ -7,35 +7,6 @@ import axios from "axios";
 import moment from "moment";
 import Navbar from "@/components/navbar";
 
-enum EventType {
-    ONLINE = 'ONLINE',
-    PHYSICAL = 'PHYSICAL',
-}
-
-export interface IEvent {
-    _id: string;
-
-    name: string;
-
-    location?: string;
-
-    details: string;
-
-    categoryId: string;
-
-    eventDate: string;
-
-    eventTime: string;
-
-    image: string;
-
-    creatorId?: string;
-
-    type: EventType;
-
-    published: boolean;
-}
-
 
 
 

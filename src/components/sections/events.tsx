@@ -1,7 +1,7 @@
 'use client';
 import Button from "../button";
 import Item from "../events";
-import { IEvent } from "@/app/[id]/page";
+import { IEvent } from "@/utils";
 import { useRouter } from "next/navigation";
 
 export interface EventSection {

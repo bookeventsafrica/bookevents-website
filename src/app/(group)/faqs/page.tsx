@@ -29,8 +29,8 @@ function FAQ() {
     return <>
         <Navbar />
 
-        <section className="px-[1rem] md:px-[100px] bg-[#F1F2F6] md:py-[56px]">
-            <h3 className="text-center text-[35px] font-bold text-[#292D32] mb-[54px]">Frequently Asked Questions</h3>
+        <section className="px-[1rem] md:px-[100px] bg-[#F1F2F6] py-[20px] md:py-[56px]">
+            <h3 className="text-center text-[20px] md:text-[35px] font-bold text-[#292D32] mb-[54px]">Frequently Asked Questions</h3>
             {faqs.map((faq, index) => {
                 return <Accordion title={faq.title} content={faq.content} index={index} key={index} />
             })}

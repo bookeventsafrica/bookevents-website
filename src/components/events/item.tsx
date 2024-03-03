@@ -4,7 +4,7 @@ import moment from "moment";
 
 
 export default function Item({ event, ...props }: { event: IEvent }) {
-    return <article className="w-full bg-white cursor-pointer relative rounded-[16px]">
+    return <div className="w-full bg-white cursor-pointer relative rounded-[16px]">
         <a href={`/${event._id}`}>
             {/* <div
                 className="h-[220px] object-cover object-[center_top] w-full rounded-t-[16px]"
@@ -47,5 +47,5 @@ export default function Item({ event, ...props }: { event: IEvent }) {
                 </div>
             </div>
         </a>
-    </article>
+    </div>
 }

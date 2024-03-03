@@ -7,3 +7,4 @@ export const formatMoney = (n: number) => {
   export const formatDate = (d: string) => {
     return moment(d).format("MMM");
   };
+

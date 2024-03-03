@@ -21,7 +21,7 @@ const Accordion = ({ title, content, index }: AccordionInterface) => {
             <div className='flex flex-col'>
                 <div className='flex justify-between items-center gap-3 pb-[24]'>
                     <p
-                        className={ "text-[22px] font-medium  cursor-pointer "}
+                        className={ "text-[15px] md:text-[22px] font-medium  cursor-pointer "}
                         onClick={() => handleToggle(index)}>
                         {title}
                     </p>
@@ -31,8 +31,8 @@ const Accordion = ({ title, content, index }: AccordionInterface) => {
                         onClick={() => handleToggle(index)}
                         className={
                             active === index
-                                ? "cursor-pointer w-[24px] h-[24px] rotate-90 text-black"
-                                : "cursor-pointer w-[24px] h-[24px] text-black"
+                                ? "cursor-pointer h-[18px] w-[18px] md:w-[24px] md:h-[24px] rotate-90 text-black"
+                                : "cursor-pointer h-[18px] w-[18px]  md:w-[24px] md:h-[24px] text-black"
                         }
                     />
                 </div>

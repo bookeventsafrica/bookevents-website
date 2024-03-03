@@ -12,7 +12,7 @@ import axios from "axios";
 
 
 export default function Home() {
-
+console.log(process.env.NEXT_PUBLIC_ENV)
   const [events, setEvents] = useState([])
   useEffect(() => {
     fetch()

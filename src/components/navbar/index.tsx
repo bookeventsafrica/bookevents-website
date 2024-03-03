@@ -47,7 +47,7 @@ function Navbar() {
 
             </div>
             <ul className="px-5 flex flex-col md:justify-center md:text-center text-primary-800 gap-10">
-                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/faqs">FAQ</a></li>
                 <li><a href="/">BLOG</a></li>
                 <li><a href={appUrl}>LOGIN</a></li>
             </ul>

@@ -12,7 +12,6 @@ import axios from "axios";
 
 
 export default function Home() {
-console.log(process.env.NEXT_PUBLIC_ENV)
   const [events, setEvents] = useState([])
   useEffect(() => {
     fetch()
@@ -21,6 +20,7 @@ console.log(process.env.NEXT_PUBLIC_ENV)
   const fetch = async () => {
     try {
       const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1`)
+      console.log(data)
       setEvents(data.data);
     } catch (err) {
     }

@@ -3,12 +3,6 @@ import Twitter from '/public/svg/socials/twitter.svg'
 import LinkedIn from '/public/svg/socials/linkedin.svg'
 import Rss from '/public/svg/socials/rss.svg'
 import Image from 'next/image';
-// <div className="footer__socials flex gap-x-[12px]">
-//   <Instagram className="w-[24px] h-[24px]" />
-//   <Twitter className="w-[24px] h-[24px]" />
-//   <LinkedIn className="w-[24px] h-[24px]" />
-//   <Rss className="w-[24px] h-[24px]" />
-// </div>
 
 export default function Footer() {
   return <footer className=" bg-white footer">

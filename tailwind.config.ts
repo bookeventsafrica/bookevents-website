@@ -49,7 +49,8 @@ const config: Config = {
         600: "#DDB2CE",
       },
       red: colors.red,
-      black: colors.black
+      black: colors.black,
+      green: colors.green
     },
     container: {},
     content: {

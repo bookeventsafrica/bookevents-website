@@ -22,7 +22,6 @@ export default function Footer() {
         <div>
           <h3 className="text-primary-800 mb-6 font-bold text-[18px]">Products</h3>
           <div className="flex flex-col gap-y-6 text-[14px] cursor-pointer">
-            <span>Events</span>
             <span>Voting Coming SOON !</span>
             <span>Ticket Sales</span>
           </div>
@@ -42,13 +41,26 @@ export default function Footer() {
         <div>
           <h3 className="text-primary mb-6 font-bold text-[18px]">Connect With Us</h3>
           <div className="flex flex-col gap-y-6 text-[14px] cursor-pointer">
-            <span>Customer Support</span>
-            <span className='flex'>
-              {/* <Instagram className="w-[24px] h-[24px]" /> */}
+            <a href='mailto:support@bookevents.africa'>
+            <span className='flex'>support@bookevents.africa</span>
+            </a>
+            <a href='https://instagram.com/bookeventsafrica'>
+            <span className='flex gap-2 items-center'>
+              <Instagram className="" />
               Instagram</span>
-            <span>Twitter</span>
-            <span>LinkedIn</span>
-            <span>SnapChat</span>
+            </a>
+            <a href=''>
+            <span className='flex gap-2 items-center'>
+              <Twitter className="" />
+              Twitter</span>
+            </a>
+            <a href=''>
+
+            <span className='flex gap-2 items-center'>
+              <LinkedIn className="" />
+              LinkedIn</span>
+
+            </a>
           </div>
         </div>
 

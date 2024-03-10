@@ -6,26 +6,42 @@ import CircleSvg from '/public/svg/circle.svg';
 import EventSection from "../components/sections/events";
 import Search from "../components/search";
 
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
 import axios from "axios";
 
 
 export default function Home() {
-console.log(process.env.NEXT_PUBLIC_ENV)
   const [events, setEvents] = useState([])
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
   useEffect(() => {
     fetch()
   }, [])
 
   const fetch = async () => {
     try {
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1`)
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1&sort=-1`)
       setEvents(data.data);
     } catch (err) {
     }
   }
 
+  const handleChange = async (e: { target: { value: SetStateAction<string>; }; }) => {
+    setEmail(e.target.value);
+  }
+
+
+  const submit = async (e: { preventDefault: () => void; }) => {
+    try {
+      e.preventDefault()
+      await axios.post(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/newsletter/subscribe`, { email })
+      setMessage('Subscription successful')
+    } catch (err) {
+
+    }
+  }
   // newsletter/subscribe
   //newsletter/unsubscribe
 
@@ -99,13 +115,15 @@ console.log(process.env.NEXT_PUBLIC_ENV)
             <h2 className="font-bold text-[20px] md:text-[30px] text-white  mb-[24px] text-center">Subscribe to our newsletter</h2>
             <p className="text-center font-normal text-white text-[12px]  md:text-[14px] mb-[24px]">Sign Up to our newsletter to get update and offers delivered in your inbox</p>
             <div>
-              <form className="flex  flex-col md:flex-row items-center gap-4 px-2 md:px-0">
+              <form className="flex  flex-col md:flex-row items-center gap-4 px-2 md:px-0" onSubmit={submit}>
                 <div className="w-[300px] md:w-[451px]">
-                  <input type="email" className="h-[40px] rounded-[8px] outline-none w-full px-3 font-400 text-[16px] text-[#959595]" placeholder="Enter email" />
+                  <input type="email" className="h-[40px] rounded-[8px] outline-none w-full px-3 font-400 text-[16px] text-[#959595]" placeholder="Enter email" required onChange={handleChange} />
                 </div>
 
-                <Button className="rounded-[8px]">Subscribe</Button>
+                <Button className="rounded-[4px]" type="submit" >Subscribe</Button>
+
               </form>
+              <p className="mt-4 text-white text-center">{message &&  message}</p>
             </div>
           </div>
         </section>

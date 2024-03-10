@@ -38,4 +38,6 @@ export interface IEvent {
   type: EventType;
 
   published: boolean;
+
+  slug: string
 }

@@ -4,7 +4,7 @@ import moment from "moment";
 
 export default function Item({ event, ...props }: { event: IEvent }) {
     return <div className="w-full bg-white cursor-pointer relative rounded-[16px]">
-        <a href={`/${event._id}`}>
+        <a href={`/${event.slug}`}>
             {/* <div
                 className="h-[220px] object-cover object-[center_top] w-full rounded-t-[16px]"
                 style={{
@@ -23,7 +23,7 @@ export default function Item({ event, ...props }: { event: IEvent }) {
             <div></div>
         </div>
 
-        <a href={`/${event._id}`} className="no-underline">
+        <a href={`/${event.slug}`} className="no-underline">
             <div className="px-[20px] py-[15px] flex items-start gap-[20px]">
                 <div className="flex flex-col">
                     <h5 className="font-[700] text-[16px] text-primary-800 m-0">{formatDate(event.eventDate).toUpperCase()}</h5>

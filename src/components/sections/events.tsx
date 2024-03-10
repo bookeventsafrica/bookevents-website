@@ -23,7 +23,7 @@ export default function EventSection({ title = 'Upcoming  Events', events, more 
             })}
         </div>
 
-        {more && events.length >= 15 && <div className="flex justify-center mt-[60px]" >
+        {more && events?.length >= 15 && <div className="flex justify-center mt-[60px]" >
             <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[8px]" onClick={() => router.push('/discovery')} >See More Events</Button>
         </div>}
     </section>

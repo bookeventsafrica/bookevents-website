@@ -21,25 +21,35 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // read route params
-    const url = `${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${params.id}`
+    let slug = params.id.split('-');
 
+    const url = `${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${slug[slug.length - 1]}`
     // fetch data
-    const {data} = await axios.get(url);
+    const { data } = await axios.get(url);
     const event = data.length ? data[0] : data;
-
     return {
         title: event?.name,
         description: event?.details,
+
+        keywords: ['event', event?.name, 'ticket', 'book events', 'africa', 'event ticketing platform', 'event booking', 'organize events', 'ticket sales'],
         openGraph: {
-            images: event?.image
+            images: [event?.image],
+            description: event?.details,
+            title: event?.name,
+            type: 'website'
         },
     };
 }
 
 
 async function getEventDetails(id: string) {
-    const { data: event } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${id}`);
-    return event.length ? event[0] : event;
+    if (id) {
+        let slug = id.split('-');
+        const { data: event } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${slug[slug.length - 1]}`);
+
+        return event.length ? event[0] : event;
+    }
+
 }
 
 
@@ -64,7 +74,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 }}
 
                             ></div> */}
-                            {event?.image && <img src={event?.image} className="w-full object-cover h-auto" alt="" width="100" height="100" />}
+                            {event?.image && <img src={event?.image} className="w-auto object-cover h-auto" alt="" width="100" height="100" />}
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between items-center ">

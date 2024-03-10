@@ -14,7 +14,7 @@ export default function EventSection({ title = 'Upcoming  Events', events, more 
 
     const router = useRouter()
 
-    return <section className="md:px-[6.18rem]  bg-[#F1F2F6] py-[50px]">
+    return <section className="">
         <h3 className="text-[#292D32] font-bold text-[25px] px-[10px] md:px-0">{title}</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] px-[10px] md:px-0 mt-[40px]">
 
@@ -26,13 +26,5 @@ export default function EventSection({ title = 'Upcoming  Events', events, more 
         {more && events?.length >= 15 && <div className="flex justify-center mt-[60px]" >
             <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px]" onClick={() => router.push('/discovery')} >See More Events</Button>
         </div>}
-
-        {/* <div className="flex gap-2 my-5 justify-end px-[10px]">
-
-        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px]" onClick={() => router.push('/discovery')} >Prev</Button>
-        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px]" onClick={() => router.push('/discovery')} >Next</Button>
-
-
-        </div> */}
     </section>
 }

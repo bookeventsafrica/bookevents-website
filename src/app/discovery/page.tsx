@@ -7,21 +7,29 @@ import Search from "../../components/search";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
 import axios from "axios";
+import Button from "@/components/button";
+import { useRouter } from "next/navigation";
 
 
 export default function Discover(props: { searchParams: { s: string; }; }) {
     const [events, setEvents] = useState([]);
 
+    //current page is offset
+    const [offset, setOffset] = useState<number>(1);
+    const [lastPage, setLastPage] = useState(0)
+
     useEffect(() => {
         fetch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.searchParams])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.searchParams, offset])
 
     const fetch = async () => {
         try {
             let searchTerm = props.searchParams.s ? props.searchParams.s : ''
-            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1&search=${searchTerm}`)
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1&search=${searchTerm}&offset=${offset}`)
             setEvents(data.data);
+            setOffset(data.offset)
+            setLastPage(data.last_page);
         } catch (err) {
         }
     }
@@ -47,14 +55,21 @@ export default function Discover(props: { searchParams: { s: string; }; }) {
             </div>
             <main>
 
+                <section className="md:px-[6.18rem]  bg-[#F1F2F6] py-[50px]">
+
+                    <EventSection title="Discover Events" events={events} />
                 {
                     events && events.length <= 0 && <div className="flex justify-center bg-[#F1F2F6] py-20">
                         <h3 className="text-[30px] font-bold">No result found : {props.searchParams.s}</h3>
                     </div>
                 }
+                    {lastPage > 1 && <div className="flex gap-5 my-10 justify-center px-[10px]" >
 
+                        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px] md:w-[200px]" onClick={() => setOffset(offset - 1)} disabled={offset == 1}>Prev</Button>
+                        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px] md:w-[200px]" onClick={() => setOffset(offset + 1)} disabled={offset == lastPage} >Next</Button>
 
-                <EventSection title="" events={events} />
+                    </div>}
+                </section>
 
             </main>
             <Footer />

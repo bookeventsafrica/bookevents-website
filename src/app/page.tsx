@@ -104,7 +104,7 @@ export default function Home() {
         </section>
 
 
-        <EventSection events={events} more={true} />
+        <EventSection title="Events" events={events} more={true} />
 
 
 

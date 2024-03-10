@@ -14,13 +14,14 @@ export default function Discover(props: { searchParams: { s: string; }; }) {
 
     useEffect(() => {
         fetch()
-    }, [props.searchParams.s])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.searchParams])
 
     const fetch = async () => {
         try {
-            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?search=${props.searchParams.s}`)
+            let searchTerm = props.searchParams.s ? props.searchParams.s : ''
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1&search=${searchTerm}`)
             setEvents(data.data);
-
         } catch (err) {
         }
     }

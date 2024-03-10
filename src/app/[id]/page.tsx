@@ -47,14 +47,20 @@ async function getEventDetails(id: string) {
         let slug = id.split('-');
         const { data: event } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${slug[slug.length - 1]}`);
 
-        return event.length ? event[0] : event;
+        return event.length ? event[0] : {};
     }
 
+}
+
+async function getUpcomingEvents() {
+    const { data: event } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/upcoming-events`);
+    return event
 }
 
 
 export default async function Home({ params }: { params: { id: string } }) {
     const event = await getEventDetails(params.id);
+    const upcomingEvents = await getUpcomingEvents()
 
     return (
         <>
@@ -113,7 +119,7 @@ export default async function Home({ params }: { params: { id: string } }) {
 
                 </section>
 
-                <EventSection title="Recommended For you " events={[]} />
+                <EventSection title="Upcoming Events" events={upcomingEvents.length && upcomingEvents} />
 
             </main>
             <Footer />

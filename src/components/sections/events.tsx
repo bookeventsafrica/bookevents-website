@@ -24,7 +24,15 @@ export default function EventSection({ title = 'Upcoming  Events', events, more 
         </div>
 
         {more && events?.length >= 15 && <div className="flex justify-center mt-[60px]" >
-            <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[8px]" onClick={() => router.push('/discovery')} >See More Events</Button>
+            <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px]" onClick={() => router.push('/discovery')} >See More Events</Button>
         </div>}
+
+        {/* <div className="flex gap-2 my-5 justify-end px-[10px]">
+
+        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px]" onClick={() => router.push('/discovery')} >Prev</Button>
+        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px]" onClick={() => router.push('/discovery')} >Next</Button>
+
+
+        </div> */}
     </section>
 }

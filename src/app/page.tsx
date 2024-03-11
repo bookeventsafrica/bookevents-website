@@ -104,7 +104,11 @@ export default function Home() {
         </section>
 
 
-        <EventSection title="Events" events={events} more={true} />
+        <section className="md:px-[6.18rem] bg-[#F1F2F6] py-[50px] ">
+
+          <EventSection title="Events" events={events} more={true} />
+
+        </section>
 
 
 
@@ -123,7 +127,7 @@ export default function Home() {
                 <Button className="rounded-[4px]" type="submit" >Subscribe</Button>
 
               </form>
-              <p className="mt-4 text-white text-center">{message &&  message}</p>
+              <p className="mt-4 text-white text-center">{message && message}</p>
             </div>
           </div>
         </section>

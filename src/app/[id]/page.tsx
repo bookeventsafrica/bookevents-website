@@ -80,7 +80,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 }}
 
                             ></div> */}
-                            {event?.image && <img src={event?.image} className="w-auto object-cover h-auto" alt="" width="100" height="100" />}
+                            {event?.image && <img src={event?.image} className="w-full object-cover h-auto" alt="" width="100" height="100" />}
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between items-center ">
@@ -118,8 +118,10 @@ export default async function Home({ params }: { params: { id: string } }) {
                     </div>}
 
                 </section>
+                <section className="md:px-[6.18rem]  bg-[#F1F2F6] py-[50px]">
+                    <EventSection title="Upcoming Events" events={upcomingEvents.length && upcomingEvents} />
+                </section>
 
-                <EventSection title="Upcoming Events" events={upcomingEvents.length && upcomingEvents} />
 
             </main>
             <Footer />

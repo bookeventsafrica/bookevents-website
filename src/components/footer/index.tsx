@@ -60,7 +60,7 @@ export default function Footer() {
 
       </div>
     </div>
-    <div className='text-primary-800 font-[500] text-[14px] flex justify-center py-[50px]'>
+    <div className='text-primary-800 font-[500] text-[14px] flex justify-center py-[50px] text-center'>
       &copy;Copyright 2024. All rights reserved. CAC NO: 7411380
     </div>
 

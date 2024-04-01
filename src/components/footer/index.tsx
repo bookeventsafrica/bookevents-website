@@ -3,32 +3,45 @@ import Twitter from '/public/svg/socials/twitter.svg'
 import LinkedIn from '/public/svg/socials/linkedin.svg'
 import Rss from '/public/svg/socials/rss.svg'
 import Image from 'next/image';
+import Link from 'next/link';
+
 
 export default function Footer() {
+  const appUrl = process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_APP_API_DEV + '/auth' : process.env.NEXT_PUBLIC_APP_API_PROD + '/auth';
+
   return <footer className=" bg-white footer">
     <div className="px-[2rem] py-[10px] md:px-[6.18rem] md:py-[41px] gap-[40px] md:gap-[164px] flex flex-col md:flex-row flex-wrap">
       <div className="">
-        <Image src={'/logo.png'} alt="bookEventsAfrica_logo" width={200} height={64} />
+        <Link href={'/'}>
 
+          <Image src={'/logo.png'} alt="bookEventsAfrica_logo" width={200} height={64} />
+        </Link>
       </div>
       {/*  */}
       <div className="text-primary-800 flex justify-between flex-1 flex-col md:flex-row gap-[20px] md:gap-0 flex-wrap">
         <div>
           <h3 className="text-primary-800 mb-6 font-bold text-[18px]">Products</h3>
           <div className="flex flex-col gap-y-6 text-[14px] cursor-pointer">
-            <span>Voting Coming SOON !</span>
-            <span>Ticket Sales</span>
+            <a href={appUrl}>
+              <span>For Organizers</span>
+
+            </a>
+            <span>E-Voting Coming SOON !</span>
           </div>
         </div>
         {/*  */}
         <div>
           <h3 className="text-primary mb-6 font-bold text-[18px]">Company</h3>
           <div className="flex flex-col gap-y-6 text-[14px] cursor-pointer">
-            <span>About Us</span>
-            <span>Contact Us</span>
-            <span>Blog</span>
-            <span>FAQ</span>
-            <span>Team</span>
+            <Link href='#'>
+              <span>Blog Coming SOON !</span>
+
+            </Link>
+            <Link href='/faqs'>
+              <span>FAQ</span>
+
+            </Link>
+
           </div>
         </div>
         {/*  */}
@@ -38,17 +51,17 @@ export default function Footer() {
             {/* <a href='mailto:support@bookevents.africa'>
             <span className='flex'>support@bookevents.africa</span>
             </a> */}
-            <a href='https://instagram.com/bookeventsafrica'>
+            <a href='https://instagram.com/bookeventsafrica' target='__blank'>
               <span className='flex gap-2 items-center'>
                 <Instagram className="" />
                 Instagram</span>
             </a>
-            <a href=''>
+            <a href='https://twitter.com/bookevents_inc' target='__blank'>
               <span className='flex gap-2 items-center'>
                 <Twitter className="" />
                 Twitter</span>
             </a>
-            <a href=''>
+            <a href='https://www.linkedin.com/company/book-events-africa' target='__blank'>
 
               <span className='flex gap-2 items-center'>
                 <LinkedIn className="" />
@@ -63,6 +76,9 @@ export default function Footer() {
     <div className='text-primary-800 font-[500] text-[14px] flex justify-center py-[50px] text-center'>
       &copy;Copyright 2024. All rights reserved. CAC NO: 7411380
     </div>
-
+    {/* <div className='text-primary-800 font-[500] text-[14px] flex justify-center py-[50px] text-center'>
+      <a href=''>Terms & Condition</a>
+      <a href=''>Privacy Policy</a>
+    </div> */}
   </footer>
 }

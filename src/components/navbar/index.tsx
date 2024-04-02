@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Button from "../button";
 import CancelIcon from "/public/svg/cancel.svg";
-import ArrowDown from '/public/svg/menu-arrow.svg';
+import Hamburger from '/public/svg/hamburger.svg';
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -34,7 +34,7 @@ function Navbar() {
             </div>
             {/* <HamburgerIcon onClick={toggleMenu} /> */}
             <div onClick={toggleMenu} className="flex md:hidden cursor-pointer">
-                <ArrowDown className="text-primary-800" />
+                <Hamburger className="text-primary-800" />
             </div>
         </nav>
 

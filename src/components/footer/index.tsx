@@ -10,7 +10,7 @@ export default function Footer() {
   const appUrl = process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_APP_API_DEV + '/auth' : process.env.NEXT_PUBLIC_APP_API_PROD + '/auth';
 
   return <footer className=" bg-white footer">
-    <div className="px-[2rem] py-[10px] md:px-[6.18rem] md:py-[41px] gap-[40px] md:gap-[164px] flex flex-col md:flex-row flex-wrap">
+    <div className="px-[2rem] py-[10px] md:px-[6.18rem] md:py-[40px] gap-[40px] md:gap-[164px] flex flex-col md:flex-row flex-wrap">
       <div className="">
         <Link href={'/'}>
 
@@ -40,6 +40,15 @@ export default function Footer() {
             <Link href='/faqs'>
               <span>FAQ</span>
 
+            </Link>
+
+            <Link href='/terms-and-conditions'>
+              <span>Terms & Conditions</span>
+
+            </Link>
+
+            <Link href='/privacy-policy'>
+              <span>Privacy Policy</span>
             </Link>
 
           </div>
@@ -73,7 +82,7 @@ export default function Footer() {
 
       </div>
     </div>
-    <div className='text-primary-800 font-[500] text-[14px] flex justify-center py-[50px] text-center'>
+    <div className='text-primary-800 font-[500] text-[14px] flex justify-center  pb-[25px] text-center'>
       &copy;Copyright 2024. All rights reserved. CAC NO: 7411380
     </div>
     {/* <div className='text-primary-800 font-[500] text-[14px] flex justify-center py-[50px] text-center'>

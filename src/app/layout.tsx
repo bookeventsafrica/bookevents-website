@@ -5,13 +5,14 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'BEA | Home',
-  description: 'Book Events africa your number one event ticketing platform in africa',
+  description: 'Book Events Africa your number one event ticketing platform in Africa',
   applicationName: 'Book Events Africa Website',
   authors: [{ name: 'BookEvents Africa Team', url: "https://www.bookevents.africa/teams" }],
   keywords: ['event ticketing', 'book events africa', 'number 1 event booking platform', 'african events', 'ticket sales', 'party', 'event organizers'],
   openGraph: {
     'type': 'website', url: "https://www.bookevents.africa", title: 'Book Events Africa', description: 'Book Events africa your number one event ticketing platform in africa', siteName: 'Book Events Africa', images: [{
-      url: 'https://www.bookevents.africa/IMG_5247.jpg'
+      url: 'https://www.bookevents.africa/IMG_5247.jpg',
+      width: 1200, height: 630
     }],
   },
   twitter: {

@@ -10,7 +10,7 @@ export default function Footer() {
   const appUrl = process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_APP_API_DEV + '/auth' : process.env.NEXT_PUBLIC_APP_API_PROD + '/auth';
 
   return <footer className=" bg-white footer">
-    <div className="px-[2rem] py-[10px] md:px-[6.18rem] md:py-[40px] gap-[40px] md:gap-[164px] flex flex-col md:flex-row flex-wrap">
+    <div className="px-[2rem] py-[20px] md:px-[6.18rem] md:py-[40px] gap-[40px] md:gap-[164px] flex flex-col md:flex-row flex-wrap">
       <div className="">
         <Link href={'/'}>
 

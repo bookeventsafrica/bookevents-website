@@ -1,11 +1,13 @@
 'use client';
-import Button from "@/components/button"
-import Footer from "@/components/footer"
-import Navbar from "@/components/navbar"
+
 import { useState } from "react"
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
+import dynamic from 'next/dynamic';
 
+const Navbar = dynamic(() => import('../../../components/navbar'));
+const Footer = dynamic(() => import('../../../components/footer'));
+const Button = dynamic(() => import('../../../components/button'));
 
 function ConfirmTicket() {
     const searchParams = useSearchParams();

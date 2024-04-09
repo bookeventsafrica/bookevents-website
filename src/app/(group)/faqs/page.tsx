@@ -1,6 +1,8 @@
-import Accordion from "@/components/accordion"
-import Footer from "@/components/footer"
-import Navbar from "@/components/navbar"
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('../../../components/navbar'));
+const Footer = dynamic(() => import('../../../components/footer'));
+const Accordion = dynamic(() => import('../../../components/accordion'));
 import { Metadata } from "next"
 
 export const metadata: Metadata = {

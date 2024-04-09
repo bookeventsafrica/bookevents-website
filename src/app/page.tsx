@@ -1,23 +1,27 @@
 "use client"
 /* eslint-disable @next/next/no-img-element */
-import Button from "../components/button";
-import Footer from "../components/footer";
 import CircleSvg from '/public/svg/circle.svg';
-import EventSection from "../components/sections/events";
-import Search from "../components/search";
-
 import { SetStateAction, useEffect, useState } from "react";
-import Navbar from "@/components/navbar";
 import axios from "axios";
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
+
+const EventSection = dynamic(() => import("../components/sections/events"));
+const Search = dynamic(() => import('../components/search'));
+const Navbar = dynamic(() => import('../components/navbar'));
+const Button = dynamic(() => import('../components/button'));
+const Footer = dynamic(() => import('../components/footer'));
 
 export default function Home() {
   const [events, setEvents] = useState([])
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     fetch()
+    fetchCategories()
   }, [])
 
   const fetch = async () => {
@@ -25,6 +29,15 @@ export default function Home() {
       const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1&sort=-1`)
       setEvents(data.data);
     } catch (err) {
+    }
+  }
+
+  const fetchCategories = async () => {
+    try {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/category`)
+      setCategories(data)
+    } catch (err) {
+
     }
   }
 
@@ -75,34 +88,18 @@ export default function Home() {
         <section className="px-[2rem] md:px-[6.18rem] my-[49px] cursor-pointer">
           <h3 className="mb-[54px]">Browse by category</h3>
           <div className="flex gap-[17px] flex-wrap justify-center md:justify-between mb-[10px]">
-            <div className="bg-graduation-party w-[165px] h-[165px] bg-no-repeat flex justify-center items-center text-white ">
 
-              <span className="text-center">Graduation Party</span>
-            </div>
-            <div className="bg-[url('/img/tech-conference.png')] w-[165px] h-[165px] bg-no-repeat flex justify-center items-center text-white ">
+            {categories.length > 0 && categories.map((category: any, i) => {
+              return <Link href={`/discovery?category=${category._id}`} key={i}>
+                <div className={`w-[165px] h-[165px] rounded-full bg-no-repeat flex justify-center items-center text-white `} style={{
+                  backgroundImage: `url(${category.image})`
+                }}>
 
-              <span className="text-center">Tech Conferences</span>
-            </div>
-            <div className="bg-[url('/img/birthday.png')] w-[165px] h-[165px] bg-no-repeat flex justify-center items-center text-white">
+                  <span className="text-center">{category.name}</span>
+                </div>
+              </Link>
+            })}
 
-              <span className="text-center">Birthday Party</span>
-            </div>
-            <div className="bg-[url('/img/fashion.png')] w-[165px] h-[165px] bg-no-repeat flex justify-center items-center text-white">
-
-              <span className="text-center">Fashion</span>
-            </div>
-            <div className="bg-[url('/img/club.png')] w-[165px] h-[165px] bg-no-repeat flex justify-center items-center text-white">
-
-              <span className="text-center">Club Party</span>
-            </div>
-            <div className="bg-[url('/img/sport.png')] w-[165px] h-[165px] bg-no-repeat flex justify-center items-center text-white">
-
-              <span className="text-center">Sport & Fitness</span>
-            </div>
-            <div className="bg-[url('/img/sequins-and-carnival.jpg')] w-[165px] h-[165px] bg-no-repeat flex justify-center items-center text-white">
-
-<span className="text-center">Carnivals</span>
-</div>
           </div>
 
         </section>

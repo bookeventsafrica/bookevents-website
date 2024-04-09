@@ -99,6 +99,10 @@ export default function Home() {
 
               <span className="text-center">Sport & Fitness</span>
             </div>
+            <div className="bg-[url('/img/sequins-and-carnival.jpg')] w-[165px] h-[165px] bg-no-repeat flex justify-center items-center text-white">
+
+<span className="text-center">Carnivals</span>
+</div>
           </div>
 
         </section>

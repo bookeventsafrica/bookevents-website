@@ -26,7 +26,8 @@ export default function Footer() {
               <span>For Organizers</span>
 
             </a>
-            <span>E-Voting Coming SOON !</span>
+            <span>E-Voting Coming Soon !</span>
+            <span>Event Promotions Coming Soon !</span>
           </div>
         </div>
         {/*  */}

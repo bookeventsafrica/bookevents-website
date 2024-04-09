@@ -1,18 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import Footer from "../../components/footer";
-import EventSection from "../../components/sections/events";
 import LocationSVG from 'public/svg/map-pin.svg'
 import CalendarSVG from 'public/svg/calendar.svg'
 import axios from "axios";
 import moment from "moment";
-import Navbar from "@/components/navbar";
-
-
-
-
 import { Metadata } from "next";
-import TicketArea from "@/components/ticketArea";
+import Image from "next/image";
+import dynamic from 'next/dynamic';
 
+const EventSection = dynamic(() => import("../../components/sections/events"));
+const Navbar = dynamic(() => import('../../components/navbar'));
+const TicketArea = dynamic(() => import('../../components/ticketArea'));
+const Footer = dynamic(() => import('../../components/footer'));
 interface Props {
     params: { id: string }
     searchParams: { [key: string]: string | string[] | undefined }
@@ -87,7 +85,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 }}
 
                             ></div> */}
-                            {event?.image && <img src={event?.image} className="w-full object-cover h-auto" alt="" width="100" height="100" />}
+                            {event?.image && <Image src={event?.image} className="w-full object-cover h-auto" alt="" width="100" height="100" />}
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between items-center ">

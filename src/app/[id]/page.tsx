@@ -4,7 +4,6 @@ import CalendarSVG from 'public/svg/calendar.svg'
 import axios from "axios";
 import moment from "moment";
 import { Metadata } from "next";
-import Image from "next/image";
 import dynamic from 'next/dynamic';
 
 const EventSection = dynamic(() => import("../../components/sections/events"));
@@ -85,7 +84,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 }}
 
                             ></div> */}
-                            {event?.image && <Image src={event?.image} className="w-full object-cover h-auto" alt="" width="100" height="100" />}
+                            {event?.image && <img src={event?.image} className="w-full object-cover h-auto" alt=""  />}
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between items-center ">

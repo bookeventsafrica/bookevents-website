@@ -91,8 +91,8 @@ export default function Home() {
 
             {categories.length > 0 && categories.map((category: any, i) => {
               return <Link href={`/discovery?category=${category._id}`} key={i}>
-                <div className={`w-[165px] h-[165px] rounded-full bg-no-repeat flex justify-center items-center text-white `} style={{
-                  backgroundImage: `url(${category.image})`
+                <div className={`w-[165px] h-[165px] rounded-full bg-no-repeat flex justify-center items-center text-white bg-cover`} style={{
+                  backgroundImage: `url(${category.image}), linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0))`
                 }}>
 
                   <span className="text-center">{category.name}</span>

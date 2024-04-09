@@ -1,6 +1,8 @@
-import Footer from "@/components/footer"
-import Navbar from "@/components/navbar"
 import { Metadata } from "next"
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('../../../components/navbar'));
+const Footer = dynamic(() => import('../../../components/footer'));
 
 export const metadata: Metadata = {
     title: 'Terms & Conditions | Book Events Africa',
@@ -14,7 +16,7 @@ function TermsAndConditions() {
         <Navbar />
 
         <section className="px-[1rem] md:px-[100px] bg-[#F1F2F6] py-[20px] md:py-[56px]">
-            <h3 className="text-center text-[20px] md:text-[35px] font-bold text-[#292D32] mb-[54px]">Terms & Condition</h3>
+            <h3 className="text-center text-[20px] md:text-[35px] font-bold text-[#292D32] mb-[54px]">Terms & Conditions</h3>
 
 
             <div className="bg-white w-full px-[50px] py-[22px] mb-[24px]">

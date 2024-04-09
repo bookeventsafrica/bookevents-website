@@ -1,6 +1,9 @@
-import Footer from "@/components/footer"
-import Navbar from "@/components/navbar"
 import { Metadata } from "next"
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('../../../components/navbar'));
+const Footer = dynamic(() => import('../../../components/footer'));
+
 
 export const metadata: Metadata = {
     title: 'Terms & Conditions | Book Events Africa',

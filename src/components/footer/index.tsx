@@ -1,10 +1,9 @@
 import Instagram from '/public/svg/socials/instagram.svg';
 import Twitter from '/public/svg/socials/twitter.svg'
 import LinkedIn from '/public/svg/socials/linkedin.svg'
-import Rss from '/public/svg/socials/rss.svg'
+
 import Image from 'next/image';
 import Link from 'next/link';
-
 
 export default function Footer() {
   const appUrl = process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_APP_API_DEV + '/auth' : process.env.NEXT_PUBLIC_APP_API_PROD + '/auth';
@@ -26,7 +25,8 @@ export default function Footer() {
               <span>For Organizers</span>
 
             </a>
-            <span>E-Voting Coming SOON !</span>
+            <span>E-Voting Coming Soon !</span>
+            <span>Event Promotions Coming Soon !</span>
           </div>
         </div>
         {/*  */}

@@ -20,8 +20,7 @@ const Accordion = ({ title, content, index }: AccordionInterface) => {
         <div className='w-full bg-white py-[24px] px-[48px] mb-[24px] rounded-[4px]'>
             <div className='flex flex-col'>
                 <div className='flex justify-between items-center gap-3 pb-[24]'>
-                    <p
-                        className={ "text-[15px] md:text-[22px] font-medium  cursor-pointer "}
+                    <p className={"text-[15px] md:text-[22px] font-medium  cursor-pointer "}
                         onClick={() => handleToggle(index)}>
                         {title}
                     </p>
@@ -38,15 +37,12 @@ const Accordion = ({ title, content, index }: AccordionInterface) => {
                 </div>
             </div>
 
-            <p
-                onClick={() => handleToggle(index)}
-                className={
-                    active === index
-                        ? "mt-[24px]"
-                        : "invisible max-h-0"
-                }>
+            <div onClick={() => handleToggle(index)} className={active === index
+                ? "mt-[24px]"
+                : "invisible max-h-0"
+            }>
                 {content}
-            </p>
+            </div>
         </div>
     );
 };

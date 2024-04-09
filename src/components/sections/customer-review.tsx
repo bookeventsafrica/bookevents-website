@@ -16,7 +16,7 @@ export default function CustomerReview() {
                 <ArrowLeft className="" />
                 </div>
                 <div className='flex justify-center items-center flex-col text-white'>
-                    <Image src={'/img/review-person.png'} alt="" width="100" height={'100'} />
+                    <Image src={'/img/review-person.png'} alt="" width={100} height={100} />
                     <p className='w-auto md:w-[367px] text-center my-[30px]'>Using bookeventsafrica to manage our events is brilliant, easy to use, has a nice user experience and keeps it professional. I love it!. I would recommend anytime and any day.</p>
                     <span>-Olivia</span>
                 </div>

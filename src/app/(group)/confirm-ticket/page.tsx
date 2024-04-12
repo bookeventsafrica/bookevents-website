@@ -20,8 +20,8 @@ function ConfirmTicket() {
         try {
             setError('')
             setLoading(true)
-            await axios.post(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/verify/${id}`, { uniqueCode: value });
-            alert('Ticket Verified')
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/verify/${id}`, { uniqueCode: value });
+            alert(`Ticket Verified and Price: ${response.data.price}`)
         } catch (err: any) {
             let message = err && err?.response && err.response.data.message
             if (message) {

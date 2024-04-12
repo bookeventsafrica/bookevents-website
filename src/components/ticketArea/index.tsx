@@ -35,7 +35,6 @@ function TicketArea({ event }: { event: IEventTicket }) {
 
         // Handle form submission
         onSubmit: async ({ email, quantity }) => {
-            console.log(selectedTicket)
             // Make a request to your backend to store the data
             if (selectedTicket.ticketPlan == TicketPlan.FREE) {
                 //register
@@ -101,8 +100,9 @@ function TicketArea({ event }: { event: IEventTicket }) {
                         </div>
 
                         {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading} type={'submit'} >Book Now</Button>}
-                        {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3" ref={flutterWaveRef}
-                            disabled={!isValid || !dirty}
+                        {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3  disabled:cursor-not-allowed disabled:opacity-[.5]" ref={flutterWaveRef}
+                        onClick={()=> setLoading(true)}
+                            disabled={loading || !isValid || !dirty}
                             email={values.email}
                             amount={values.quantity * selectedTicket.price!}
                             title={event.name}
@@ -111,6 +111,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             qty={values.quantity}
                             description={event.details}
                             close={() => {
+                                setLoading(false)
                                 form.setValues({ email: '', quantity: 1 });
                                 setSelectedTicket({} as ITicket);
                             }}

@@ -1,7 +1,7 @@
 'use client'
-import { formatMoney, IEvent } from "@/utils";
+import { formatMoney, IEvent, isEventPast, debounce } from "@/utils";
 import { useFormik } from "formik";
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useRef, useState, useEffect } from "react";
 import Button from "../button";
 import Ticket, { ITicket, TicketPlan } from "../ticket";
 import * as Yup from 'yup';
@@ -22,6 +22,9 @@ const schema = Yup.object().shape({
 
 function TicketArea({ event }: { event: IEventTicket }) {
     const [loading, setLoading] = useState(false)
+    const flutterWaveRef = useRef<HTMLButtonElement>(null)
+    const [selectedTicket, setSelectedTicket] = useState<ITicket>({} as ITicket)
+    const [availableQuantity, setAvailableQuantity] = useState<number>(0); // Store fetched quantity
 
     // Formik hook to handle the form state
     const form = useFormik({
@@ -57,19 +60,34 @@ function TicketArea({ event }: { event: IEventTicket }) {
     // Destructure the formik object
     const { errors, touched, values, handleChange, handleSubmit, dirty, handleBlur, isValid } = form;
 
-    const flutterWaveRef = useRef<HTMLButtonElement>(null)
-    const [selectedTicket, setSelectedTicket] = useState<ITicket>({} as ITicket)
 
-    function isEventPast(eventDateStr: string) {
-        const eventDate = new Date(eventDateStr);
-        const today = new Date();
-        return eventDate < today;
-      }
+
+
+
+    const debouncedSelectTicket = debounce(async (ticket: ITicket) => {
+        if (ticket) { // Check if ticket is actually selected
+            const {data}: any = await checkTicketQuantity(ticket._id); // Make API call to check quantity
+            console.log(data)
+            setAvailableQuantity(data); // Update state with available quantity
+            setSelectedTicket(ticket); // Update selected ticket state
+        }
+    }, 120); // Adjust debounce delay as needed
+
+
+
+    const handleTicketSelect = (ticket: ITicket) => {
+        debouncedSelectTicket(ticket); // Trigger debounced function
+    };
+
+    const checkTicketQuantity = (ticketId: string) => {
+        return axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ?
+            process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${event._id}/ticket/${ticketId}/qty-count`)
+    }
 
     return <>
         <div>
             {event.tickets && <Ticket tickets={event.tickets}
-                selectedTicket={selectedTicket!} select={(ticket) => setSelectedTicket(ticket)} />}
+                selectedTicket={selectedTicket!} select={(ticket) => handleTicketSelect(ticket)} />}
         </div>
         {selectedTicket?._id &&
             <Fragment>
@@ -103,10 +121,10 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             </div>
                         </div>
 
-                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate)} type={'submit'} >Book Now</Button>}
+                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) || (availableQuantity + values.quantity) >= (selectedTicket?.limit ?? 0)} type={'submit'} >Book Now</Button>}
                         {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3  disabled:cursor-not-allowed disabled:opacity-[.5]" ref={flutterWaveRef}
-                        onClick={()=> setLoading(true)}
-                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate)}
+                            onClick={() => setLoading(true)}
+                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate) ||  (availableQuantity + values.quantity) >= (selectedTicket?.limit ?? 0)}
                             email={values.email}
                             amount={values.quantity * selectedTicket.price!}
                             title={event.name}

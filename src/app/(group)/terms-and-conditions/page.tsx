@@ -93,16 +93,6 @@ function TermsAndConditions() {
 
             </div>
 
-            <div className="bg-white w-full px-[50px] py-[22px] mb-[24px]">
-                <h2 className="text-[24px] font-bold mb-[20px]">Availability</h2>
-                <p className="text-[#707070]  font-normal">
-
-                    Unless otherwise stated, the services featured on this website are only available within African countries, or in relation to postings from those countries. All advertising is intended solely for the infotainment market. You are solely responsible for evaluating the fitness for a particular purpose of any downloads, programs, and text available through this site. Redistribution or republication of any part of this site or its content is prohibited, including such by framing or other similar or any other means, without the express written consent of the Company. The Company does not warrant that the service from this site will be uninterrupted, timely, or error-free, although it is provided to the best ability. By using this service you thereby indemnify this Company, its employees, agents, and affiliates against any loss or damage, in whatever manner, howsoever caused.</p>
-
-
-
-            </div>
-
 
             <div className="bg-white w-full px-[50px] py-[22px] mb-[24px]">
                 <h2 className="text-[24px] font-bold mb-[20px]">Log Files</h2>

@@ -32,7 +32,8 @@ export interface ITicket {
 
     price?: number;
 
-    sold?: number;
+    
+    limit?: number;
 
     available?: boolean;
 }

@@ -60,7 +60,11 @@ function TicketArea({ event }: { event: IEventTicket }) {
     const flutterWaveRef = useRef<HTMLButtonElement>(null)
     const [selectedTicket, setSelectedTicket] = useState<ITicket>({} as ITicket)
 
-
+    function isEventPast(eventDateStr: string) {
+        const eventDate = new Date(eventDateStr);
+        const today = new Date();
+        return eventDate < today;
+      }
 
     return <>
         <div>
@@ -99,10 +103,10 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             </div>
                         </div>
 
-                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading} type={'submit'} >Book Now</Button>}
+                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate)} type={'submit'} >Book Now</Button>}
                         {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3  disabled:cursor-not-allowed disabled:opacity-[.5]" ref={flutterWaveRef}
                         onClick={()=> setLoading(true)}
-                            disabled={loading || !isValid || !dirty}
+                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate)}
                             email={values.email}
                             amount={values.quantity * selectedTicket.price!}
                             title={event.name}

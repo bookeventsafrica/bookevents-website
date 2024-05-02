@@ -76,7 +76,8 @@ function TicketArea({ event }: { event: IEventTicket }) {
 
 
     const handleTicketSelect = (ticket: ITicket) => {
-        debouncedSelectTicket(ticket); // Trigger debounced function
+        return   setSelectedTicket(ticket); 
+        // debouncedSelectTicket(ticket); // Trigger debounced function
     };
 
     const checkTicketQuantity = (ticketId: string) => {
@@ -121,10 +122,10 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             </div>
                         </div>
 
-                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) || (availableQuantity + values.quantity) >= (selectedTicket?.limit ?? 0)} type={'submit'} >Book Now</Button>}
+                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) } type={'submit'} >Book Now</Button>}
                         {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3  disabled:cursor-not-allowed disabled:opacity-[.5]" ref={flutterWaveRef}
                             onClick={() => setLoading(true)}
-                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate) ||  (availableQuantity + values.quantity) >= (selectedTicket?.limit ?? 0)}
+                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate)}
                             email={values.email}
                             amount={values.quantity * selectedTicket.price!}
                             title={event.name}

@@ -52,7 +52,7 @@ export default function Home() {
       await axios.post(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/newsletter/subscribe`, { email })
       setMessage('Subscription successful')
     } catch (err) {
-
+      console.error(err);
     }
   }
   // newsletter/subscribe
@@ -105,7 +105,7 @@ export default function Home() {
         </section>
 
 
-        <section className="md:px-[6.18rem] bg-[#F1F2F6] py-[50px] ">
+        <section className="px-[2rem] md:px-[6.18rem] bg-[#F1F2F6] py-[50px] ">
 
           <EventSection title="Events" events={events} more={true} />
 

@@ -1,7 +1,7 @@
 import './globals.css'
 import { Providers } from '@/provider'
 import type { Metadata } from 'next'
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: 'BEA | Home',
@@ -28,8 +28,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const dev = process.env.NEXT_PUBLIC_ENV === 'development';
   return (
     <html lang="en">
+      {!dev && <GoogleAnalytics gaId="G-SX372Q5B82" />}
       <body>
         <Providers>
           {children}

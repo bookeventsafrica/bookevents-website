@@ -1,8 +1,3 @@
-'use client';
-
-import { useState } from "react"
-import axios from "axios";
-import { useSearchParams } from "next/navigation";
 import dynamic from 'next/dynamic';
 import Image from "next/image";
 import LinkedIn from '/public/svg/socials/linkedin.svg'

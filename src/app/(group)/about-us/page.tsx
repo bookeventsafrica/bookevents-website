@@ -8,33 +8,19 @@ import Image from "next/image";
 import LinkedIn from '/public/svg/socials/linkedin.svg'
 import X from '/public/svg/socials/twitter.svg'
 import Instagram from '/public/svg/socials/instagram.svg'
-import Link from "next/link";
+import { Metadata } from "next";
 
 const Navbar = dynamic(() => import('../../../components/navbar'));
 const Footer = dynamic(() => import('../../../components/footer'));
 
-function AboutUs() {
-    const searchParams = useSearchParams();
-    const [value, setValue] = useState('');
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false)
 
-    const handleVerification = async () => {
-        const id = searchParams.get('id');
-        try {
-            setError('')
-            setLoading(true)
-            const response = await axios.post(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/verify/${id}`, { uniqueCode: value });
-            alert(`Ticket Verified and Price: ${response.data.price}`)
-        } catch (err: any) {
-            let message = err && err?.response && err.response.data.message
-            if (message) {
-                setError(message);
-            }
-        } finally {
-            setLoading(false)
-        }
-    }
+export const metadata: Metadata = {
+    title: 'About Us | Book Events Africa',
+    description: 'Book events africa We provide essential features to manage your events seamlessly. Book Event Africa streamlines event management by leveraging advanced ticketing solutions, ensuring a seamless and intuitive experience for both organizers and attendees. Book Event Africa aims to transform the event planning and ticketing industry, providing attendees with a smooth booking experience and offering event planners dedicated, customer-focused services. Our services includes Event Support, Event Management, Event Promotions , Fast / Instant Payout and Ticket Sales',
+}
+
+
+function AboutUs() {
 
     return <>
         <Navbar />
@@ -133,10 +119,10 @@ function AboutUs() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-[48px]">
                     <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image src={'/img/cto.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/cto.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Ukpai  Chukwuemeka</h4>
-                            <p className=" text-[12px] font-normal text-primary-800">CTO / Co-Founder</p>
+                            <p className=" text-[12px] font-normal text-primary-800">Co-Founder / CTO</p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
                                 <a href="https://instagram.com/officialaimes" target="__blank">
 
@@ -156,10 +142,10 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image src={'/img/co-founder.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/co-founder.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Shaka (Osas) Wisdom</h4>
-                            <p className=" text-[12px] font-normal text-primary-800">Co-Founder/ Marketer</p>
+                            <p className=" text-[12px] font-normal text-primary-800">Co-Founder</p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
 
                                 <a href="https://instagram.com/freedomng_" target="__blank">
@@ -180,7 +166,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image src={'/img/bea-ui-ux.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/bea-ui-ux.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Eze Chizoba</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Product Designer</p>
@@ -204,7 +190,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image src={'/img/hr.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/hr.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Becky Ihejika</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Human Resources</p>
@@ -227,9 +213,9 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <img src={'https://ui-avatars.com/api/?background=653479&color=fff&name=jarvis'} className="w-full rounded-t-[4px]" alt="" />
+                        <Image loading={'lazy'} src={'/img/legal.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
-                            <h4 className="text-[18px] font-medium text-[#292D32]">Jarvis</h4>
+                            <h4 className="text-[18px] font-medium text-[#292D32]">Vincent Ifechukwude Onukwu</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Legal Practitioner </p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
                                 <a href="https://instagram.com/" target="__blank">
@@ -250,9 +236,9 @@ function AboutUs() {
                         </div>
                     </div>
                     <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <img src={'https://ui-avatars.com/api/?background=653479&color=fff&name=Donyinsola'} className="w-full rounded-t-[4px]" alt="" />
+                        <Image loading={'lazy'} src={'/img/socials.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
-                            <h4 className="text-[18px] font-medium text-[#292D32]">Doyinsola</h4>
+                            <h4 className="text-[18px] font-medium text-[#292D32]">Doyinsola Akintola</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Social Media Manager</p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
                                 <a href="https://instagram.com/" target="__blank">

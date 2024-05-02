@@ -6,13 +6,16 @@ import Hamburger from '/public/svg/hamburger.svg';
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { usePathname } from 'next/navigation'
 
 function Navbar() {
+    const currentPath = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter()
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
 
     const appUrl = process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_APP_API_DEV + '/auth' : process.env.NEXT_PUBLIC_APP_API_PROD + '/auth';
 
@@ -23,11 +26,12 @@ function Navbar() {
             </Link>
         </div>
 
-        <nav className="flex gap-x-[24px] cursor-pointer flex-col md:flex-row md:items-center md:justify-end text-[16px] text-primary-800">
+        <nav className="flex gap-x-[24px] cursor-pointer flex-col md:flex-row md:items-center md:justify-end text-[16px]">
             <ul className="hidden md:flex gap-x-[40px] mb-4 md:mb-0">
-                <li><a href="/faqs" className="font-normal text-[16px]">Faqs</a></li>
-                <li><a href="/" className="font-normal text-[16px]">Blog</a></li>
-                <li><a href={appUrl} className="font-normal text-[16px]">Login</a></li>
+            <li><Link href="/" className={`${currentPath === "/" ? " font-semibold  text-primary-800 " : "text-primary-800"} font-normal text-[16px]`}>Home</Link></li>
+            <li><Link href="/about-us" className={`${currentPath === "/about-us" ? " font-semibold  text-primary-800 " : "text-primary-800"} font-normal text-[16px]`}>About Us</Link></li>
+                <li><a href="#" className={`${currentPath === "/blog" ?  " font-semibold  text-primary-800 "  : "text-primary-800"} font-normal text-[16px]`}>Blog</a></li>
+                <li><a href={appUrl} className={`font-normal text-primary-800 text-[16px]`}>Login</a></li>
             </ul>
             <div className="hidden md:block mt-3 md:mt-0">
                 <Button variant="primary" className="rounded-[8px] text-[16px] px-[24px] py-[10px]" onClick={()=> router.push(appUrl!)}>Sign Up</Button>
@@ -46,10 +50,11 @@ function Navbar() {
                 <CancelIcon className="text-primary-800 cursor-pointer" onClick={toggleMenu} />
 
             </div>
-            <ul className="px-5 flex flex-col md:justify-center md:text-center text-primary-800 gap-10">
-                <li><a href="/faqs" className="font-normal text-[16px]">Faqs</a></li>
-                <li><a href="/" className="font-normal text-[16px]">Blog</a></li>
-                <li><a href={appUrl} className="font-normal text-[16px]">Login</a></li>
+            <ul className="px-5 flex flex-col items-center md:justify-center md:text-center text-primary-800 gap-10">
+            <li><Link href="/" className={`${currentPath === "/" ? " font-semibold  text-primary-800 " : "text-primary-800"} font-normal text-[16px]`}>Home</Link></li>
+                <li><Link href="/about-us" className={`${currentPath === "/about-us" ? " font-semibold  text-primary-800 " : "text-primary-800"} font-normal text-[16px]`}>About Us</Link></li>
+                <li><Link href="#" className={`${currentPath === "/blog" ?  "text-white font-semibold px-3 bg--500 rounded-md": "text-primary-800"} font-normal text-[16px]`}>Blog</Link></li>
+                <li><a href={appUrl} className={`font-normal text-primary-800 text-[16px]`}>Login</a></li>
             </ul>
 
             <div className="px-5 my-5">

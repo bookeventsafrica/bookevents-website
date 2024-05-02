@@ -7,7 +7,7 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
     title: 'FAQs | Book Events Africa',
-    description: 'Frequently asked questions',
+    description: 'Book Events Africa Frequently asked questions',
 }
 
 

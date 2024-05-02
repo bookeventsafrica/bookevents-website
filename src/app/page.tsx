@@ -18,6 +18,7 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     fetch()
@@ -48,15 +49,21 @@ export default function Home() {
 
   const submit = async (e: { preventDefault: () => void; }) => {
     try {
+      setLoading(true)
       e.preventDefault()
       await axios.post(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/newsletter/subscribe`, { email })
       setMessage('Subscription successful')
+      setLoading(false)
     } catch (err) {
-
+      const error = err as any
+      if(error.response.data){
+        setMessage(error.response.data.message)
+      }
+      console.error(err);
+      setEmail('')
+      setLoading(false)
     }
   }
-  // newsletter/subscribe
-  //newsletter/unsubscribe
 
   return (
     <>
@@ -105,7 +112,7 @@ export default function Home() {
         </section>
 
 
-        <section className="md:px-[6.18rem] bg-[#F1F2F6] py-[50px] ">
+        <section className="px-[2rem] md:px-[6.18rem] bg-[#F1F2F6] py-[50px] ">
 
           <EventSection title="Events" events={events} more={true} />
 
@@ -125,7 +132,7 @@ export default function Home() {
                   <input type="email" className="h-[40px] rounded-[8px] outline-none w-full px-3 font-400 text-[16px] text-[#959595]" placeholder="Enter email" required onChange={handleChange} />
                 </div>
 
-                <Button className="rounded-[4px]" type="submit" >Subscribe</Button>
+                <Button className="rounded-[4px]" type="submit" disabled={loading}>Subscribe</Button>
 
               </form>
               <p className="mt-4 text-white text-center">{message && message}</p>

@@ -33,12 +33,16 @@ export default function Footer() {
         <div>
           <h3 className="text-primary mb-6 font-bold text-[18px]">Company</h3>
           <div className="flex flex-col gap-y-6 text-[14px] cursor-pointer">
+          <Link href='#'>
+              <span>About Us</span>
+
+            </Link>
             <Link href='#'>
               <span>Blog Coming SOON !</span>
 
             </Link>
             <Link href='/faqs'>
-              <span>FAQ</span>
+              <span>FAQs</span>
 
             </Link>
 

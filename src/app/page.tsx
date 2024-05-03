@@ -112,7 +112,7 @@ export default function Home() {
         </section>
 
 
-        <section className="px-[2rem] md:px-[6.18rem] bg-[#F1F2F6] py-[50px] ">
+        <section className="md:px-[6.18rem] bg-[#F1F2F6] py-[50px] ">
 
           <EventSection title="Events" events={events} more={true} />
 

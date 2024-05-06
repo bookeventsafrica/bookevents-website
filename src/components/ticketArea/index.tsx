@@ -76,6 +76,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
 
 
     const handleTicketSelect = (ticket: ITicket) => {
+        
         return setSelectedTicket(ticket);
         // debouncedSelectTicket(ticket); // Trigger debounced function
     };

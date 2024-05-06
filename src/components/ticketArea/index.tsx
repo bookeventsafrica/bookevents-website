@@ -21,6 +21,7 @@ const schema = Yup.object().shape({
 });
 
 function TicketArea({ event }: { event: IEventTicket }) {
+    console.log(event.tickets)
     const [loading, setLoading] = useState(false)
     const flutterWaveRef = useRef<HTMLButtonElement>(null)
     const [selectedTicket, setSelectedTicket] = useState<ITicket>({} as ITicket)

@@ -50,8 +50,7 @@ async function getEventDetails(id: string) {
     if (id) {
         let slug = id.split('-');
         const { data: event } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/${slug[slug.length - 1]}`);
-
-        return event.length ? event[0] : {};
+        return event.length ? event[0] : [];
     }
 
 }

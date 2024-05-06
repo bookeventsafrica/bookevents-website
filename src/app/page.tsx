@@ -122,7 +122,7 @@ export default function Home() {
 
         <section className="relative">
 
-          <img src="/newsletter.png" className="w-full h-[332px]" alt="newsletter image" />
+          <img src="/newsletter.png" className="w-full h-[332px]" alt="newsletter image" loading='lazy' />
           <div className="absolute  inset-0 flex justify-center align-middle items-center flex-col px-[10px]">
             <h2 className="font-bold text-[20px] md:text-[30px] text-white  mb-[24px] text-center">Subscribe to our newsletter</h2>
             <p className="text-center font-normal text-white text-[12px]  md:text-[14px] mb-[24px]">Sign Up to our newsletter to get update and offers delivered in your inbox</p>

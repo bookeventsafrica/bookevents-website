@@ -21,7 +21,6 @@ const schema = Yup.object().shape({
 });
 
 function TicketArea({ event }: { event: IEventTicket }) {
-    console.log(event.tickets)
     const [loading, setLoading] = useState(false)
     const flutterWaveRef = useRef<HTMLButtonElement>(null)
     const [selectedTicket, setSelectedTicket] = useState<ITicket>({} as ITicket)
@@ -67,7 +66,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
 
     const debouncedSelectTicket = debounce(async (ticket: ITicket) => {
         if (ticket) { // Check if ticket is actually selected
-            const {data}: any = await checkTicketQuantity(ticket._id); // Make API call to check quantity
+            const { data }: any = await checkTicketQuantity(ticket._id); // Make API call to check quantity
             console.log(data)
             setAvailableQuantity(data); // Update state with available quantity
             setSelectedTicket(ticket); // Update selected ticket state
@@ -77,7 +76,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
 
 
     const handleTicketSelect = (ticket: ITicket) => {
-        return   setSelectedTicket(ticket); 
+        return setSelectedTicket(ticket);
         // debouncedSelectTicket(ticket); // Trigger debounced function
     };
 
@@ -122,11 +121,10 @@ function TicketArea({ event }: { event: IEventTicket }) {
                                 {selectedTicket.ticketPlan == TicketPlan.FREE && <h6 className="font-light text-[18px] text-primary-800" >{TicketPlan.FREE}</h6>}
                             </div>
                         </div>
-
-                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) } type={'submit'} >Book Now</Button>}
+                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > selectedTicket.limit} type={'submit'} >Book Now</Button>}
                         {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3  disabled:cursor-not-allowed disabled:opacity-[.5]" ref={flutterWaveRef}
                             onClick={() => setLoading(true)}
-                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate)}
+                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > selectedTicket.limit}
                             email={values.email}
                             amount={values.quantity * selectedTicket.price!}
                             title={event.name}

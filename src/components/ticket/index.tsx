@@ -33,15 +33,16 @@ export interface ITicket {
     price?: number;
 
     
-    limit?: number;
+    limit: number;
 
     available?: boolean;
 
     limitReached?: boolean
+
+    totalRegistered: number
 }
 
 export default function Ticket({ selectedTicket, select, tickets }: TicketProps) {
-
     return <div className='mt-6'>
 
         {/* <h6 className="font-400 text-[14px] text-[#292D32]">Tickets</h6> */}

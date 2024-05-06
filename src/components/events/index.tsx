@@ -13,7 +13,7 @@ export default function Item({ event, ...props }: { event: IEvent }) {
 
             ></div> */}
             {/*  eslint-disable-next-line @next/next/no-img-element */}
-            <img src={event.image} alt="" className="h-[220px] w-full object-cover" />
+            <img src={event.image} alt="" className="h-[220px] w-full object-cover"  loading="lazy"/>
         </a>
         <div className="top-0 px-[22px] py-[19px] absolute">
             <div className="bg-white py-[4px] px-2 rounded-[6px] text-[12px] font-light text-[#000] shadow-sm">

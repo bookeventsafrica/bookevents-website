@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
         keywords: ['event', event?.name, 'ticket', 'book events', 'africa', 'event ticketing platform', 'event booking', 'organize events', 'ticket sales'],
         openGraph: {
-            images: [{ url: event?.image , width: 1200, height: 630}],
+            images: [{ url: event?.image, width: 1200, height: 630 }],
             description: event?.details,
             title: event?.name,
             type: 'website',
@@ -84,7 +84,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 }}
 
                             ></div> */}
-                            {event?.image && <img src={event?.image} className="w-full object-cover h-auto" alt=""  />}
+                            {event?.image && <img src={event?.image} className="w-full object-cover h-auto" alt="" />}
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between items-center ">
@@ -122,9 +122,9 @@ export default async function Home({ params }: { params: { id: string } }) {
                     </div>}
 
                 </section>
-                <section className="md:px-[6.18rem]  bg-[#F1F2F6] py-[50px]">
+                {event._id !== '66389392fa089ca534c30eb7' && <section className="md:px-[6.18rem]  bg-[#F1F2F6] py-[50px]" >
                     <EventSection title="Upcoming Events" events={upcomingEvents.length && upcomingEvents} />
-                </section>
+                </section>}
 
 
             </main>

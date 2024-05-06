@@ -69,6 +69,7 @@ export default function Home() {
     <>
       {/* banner */}
       <div className=" bg-hero-home bg-no-repeat w-full h-[704px] md:bg-cover  text-white bg-center">
+        <img src="/img/home.avif" style={{display: 'none'}} alt="bg-image" loading="eager" />
         <Navbar />
 
 
@@ -122,7 +123,7 @@ export default function Home() {
 
         <section className="relative">
 
-          <img src="/newsletter.png" className="w-full h-[332px]" alt="newsletter image" />
+          <img src="/newsletter.avif" className="w-full h-[332px]" alt="newsletter image" loading='lazy'  width="300"  height={"332"}/>
           <div className="absolute  inset-0 flex justify-center align-middle items-center flex-col px-[10px]">
             <h2 className="font-bold text-[20px] md:text-[30px] text-white  mb-[24px] text-center">Subscribe to our newsletter</h2>
             <p className="text-center font-normal text-white text-[12px]  md:text-[14px] mb-[24px]">Sign Up to our newsletter to get update and offers delivered in your inbox</p>

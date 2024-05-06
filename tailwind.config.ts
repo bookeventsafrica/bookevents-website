@@ -81,7 +81,7 @@ const config: Config = {
       backgroundImage: {
         'about-img': "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),url('/img/about-us.png')",
         'graduation-party': "url('/img/graduation-party.png')",
-        'hero-home': "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('/img/home.png')",
+        'hero-home': "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('/img/home.avif')",
         'hero-discovery': "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('/img/discovery.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

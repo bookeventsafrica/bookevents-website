@@ -68,7 +68,6 @@ function TicketArea({ event }: { event: IEventTicket }) {
     const debouncedSelectTicket = debounce(async (ticket: ITicket) => {
         if (ticket) { // Check if ticket is actually selected
             const { data }: any = await checkTicketQuantity(ticket._id); // Make API call to check quantity
-            console.log(data)
             setAvailableQuantity(data); // Update state with available quantity
             setSelectedTicket(ticket); // Update selected ticket state
         }

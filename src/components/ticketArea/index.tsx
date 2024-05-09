@@ -25,6 +25,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
     const flutterWaveRef = useRef<HTMLButtonElement>(null)
     const [selectedTicket, setSelectedTicket] = useState<ITicket>({} as ITicket)
     const [availableQuantity, setAvailableQuantity] = useState<number>(0); // Store fetched quantity
+    const [percentageToAdd, setPercentageToAdd] = useState(0)
 
     // Formik hook to handle the form state
     const form = useFormik({
@@ -76,7 +77,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
 
 
     const handleTicketSelect = (ticket: ITicket) => {
-        
+        setPercentageToAdd(event.isAttendeeCharged ? Number(event.percentage) * Number(ticket.price!) : 0)
         return setSelectedTicket(ticket);
         // debouncedSelectTicket(ticket); // Trigger debounced function
     };
@@ -118,7 +119,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             </div>
                             <div className="flex justify-between mb-5">
                                 <h3 className="font-light uppercase text-[12px]">Total</h3>
-                                {selectedTicket.ticketPlan == TicketPlan.PAID && <h6 className="font-light text-[18px] text-primary-800" >{formatMoney(values.quantity * selectedTicket.price!)}</h6>}
+                                {selectedTicket.ticketPlan == TicketPlan.PAID && <h6 className="font-light text-[18px] text-primary-800" >{formatMoney((values.quantity * selectedTicket.price!) + (percentageToAdd * values.quantity))}</h6>}
                                 {selectedTicket.ticketPlan == TicketPlan.FREE && <h6 className="font-light text-[18px] text-primary-800" >{TicketPlan.FREE}</h6>}
                             </div>
                         </div>
@@ -127,7 +128,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             onClick={() => setLoading(true)}
                             disabled={loading || !isValid || !dirty || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > selectedTicket.limit}
                             email={values.email}
-                            amount={values.quantity * selectedTicket.price!}
+                            amount={(values.quantity * selectedTicket.price!) + (percentageToAdd * values.quantity)}
                             title={event.name}
                             ticketId={selectedTicket._id}
                             eventId={event._id}

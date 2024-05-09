@@ -51,8 +51,7 @@ export default function Ticket({ selectedTicket, select, tickets }: TicketProps)
             {tickets.filter(ticket => ticket.available ).map(ticket => {
                 return <div className={`${selectedTicket?._id == ticket._id && 'border-primary-800 border border-1.5'} flex flex-col justify-center bg-[#F1F1F1] p-3 text-center rounded-[4px]  w-full md:w-[120px]`} key={ticket._id} onClick={() => select(ticket)}>
                     <p className="font-400 text-[12px]">{ticket.name}</p>
-                   {Number(ticket.price) && <p className="text-[14px] font-500">{formatMoney(ticket.price!)}</p>}
-                   {!ticket.price && <p className="text-[14px] font-500">{ticket.ticketPlan}</p>}
+                   {ticket.price  ? <p className="text-[14px] font-500">{formatMoney(ticket.price!)}</p> : <p className="text-[14px] font-500">{ticket.ticketPlan}</p> }
                     <p className="font-400 text-[12px]">Admits {ticket?.admits ? ticket.admits : 1}</p>
                 </div>
             })}

@@ -37,6 +37,10 @@ export interface IEvent {
   published: boolean;
 
   slug: string;
+
+  isAttendeeCharged: boolean
+
+  percentage: string
 }
 
 export function isEventPast(eventDateStr: string) {

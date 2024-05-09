@@ -122,10 +122,10 @@ function TicketArea({ event }: { event: IEventTicket }) {
                                 {selectedTicket.ticketPlan == TicketPlan.FREE && <h6 className="font-light text-[18px] text-primary-800" >{TicketPlan.FREE}</h6>}
                             </div>
                         </div>
-                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > selectedTicket.limit} type={'submit'} >Book Now</Button>}
+                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > (selectedTicket.limit ?? 500)} type={'submit'} >Book Now</Button>}
                         {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3  disabled:cursor-not-allowed disabled:opacity-[.5]" ref={flutterWaveRef}
                             onClick={() => setLoading(true)}
-                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > selectedTicket.limit}
+                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > (selectedTicket.limit ?? 500)}
                             email={values.email}
                             amount={(values.quantity * selectedTicket.price!) + (percentageToAdd * values.quantity)}
                             title={event.name}

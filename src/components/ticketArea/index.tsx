@@ -5,7 +5,7 @@ import { Fragment, useRef, useState, useEffect } from "react";
 import Button from "../button";
 import Ticket, { ITicket, TicketPlan } from "../ticket";
 import * as Yup from 'yup';
-
+import Notiflix from 'notiflix';
 import CustomFlutterWaveButton from '@/components/flutterwave-button';
 import axios from "axios";
 
@@ -51,7 +51,15 @@ function TicketArea({ event }: { event: IEventTicket }) {
                     setSelectedTicket({} as ITicket);
                     setLoading(false)
                     form.setValues({ email: '', quantity: 1 });
+                    Notiflix.Notify.success(
+                        'Ticket Booked',
+                        {
+                            timeout: 2000,
+                        },
+                    );
+
                 } catch (err) {
+                    Notiflix.Notify.failure('An Error Occurred');
                     setLoading(false);
                 }
             }
@@ -122,10 +130,10 @@ function TicketArea({ event }: { event: IEventTicket }) {
                                 {selectedTicket.ticketPlan == TicketPlan.FREE && <h6 className="font-light text-[18px] text-primary-800" >{TicketPlan.FREE}</h6>}
                             </div>
                         </div>
-                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > (selectedTicket.limit ?? 500)} type={'submit'} >Book Now</Button>}
+                        {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > selectedTicket.limit} type={'submit'} >Book Now</Button>}
                         {selectedTicket.ticketPlan == TicketPlan.PAID && <CustomFlutterWaveButton className="rounded-[4px] w-full bg-primary-800 text-white p-3  disabled:cursor-not-allowed disabled:opacity-[.5]" ref={flutterWaveRef}
                             onClick={() => setLoading(true)}
-                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > (selectedTicket.limit ?? 500)}
+                            disabled={loading || !isValid || !dirty || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > selectedTicket.limit}
                             email={values.email}
                             amount={(values.quantity * selectedTicket.price!) + (percentageToAdd * values.quantity)}
                             title={event.name}

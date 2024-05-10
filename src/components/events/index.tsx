@@ -1,4 +1,4 @@
-import { formatDate, IEvent } from "@/utils";
+import { formatDate, IEvent, isEventPast } from "@/utils";
 import moment from "moment";
 
 
@@ -15,12 +15,12 @@ export default function Item({ event, ...props }: { event: IEvent }) {
             {/*  eslint-disable-next-line @next/next/no-img-element */}
             <img src={event.image} alt="" className="h-[220px] w-full object-cover"  loading="lazy"/>
         </a>
-        <div className="top-0 px-[22px] py-[19px] absolute">
+        <div className="top-0 px-[22px] py-[19px] absolute flex justify-between w-full">
             <div className="bg-white py-[4px] px-2 rounded-[6px] text-[12px] font-light text-[#000] shadow-sm">
                 {event.type}
             </div>
 
-            <div></div>
+           {isEventPast(event.eventDate) && <div className="bg-white py-[4px] px-2 rounded-[6px] text-[12px] font-bold text-red-600 shadow-sm uppercase ">Expired</div>}
         </div>
 
         <a href={`/${event.slug}`} className="no-underline">

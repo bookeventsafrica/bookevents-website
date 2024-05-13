@@ -89,3 +89,8 @@ body {
 button[disabled]{
  opacity: .5
 }
+
+
+.tawk-chatinput-send-container > .tawk-chatinput-send {
+  @apply text-primary-800 !important;
+}

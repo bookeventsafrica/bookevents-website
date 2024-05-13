@@ -11,7 +11,8 @@ const Footer = dynamic(() => import('../../../components/footer'));
 
 export const metadata: Metadata = {
     title: 'About Us | Book Events Africa',
-    description: 'Book events africa We provide essential features to manage your events seamlessly. Book Event Africa streamlines event management by leveraging advanced ticketing solutions, ensuring a seamless and intuitive experience for both organizers and attendees. Book Event Africa aims to transform the event planning and ticketing industry, providing attendees with a smooth booking experience and offering event planners dedicated, customer-focused services. Our services includes Event Support, Event Management, Event Promotions , Fast / Instant Payout and Ticket Sales',
+    description: 'Book Event Africa offers essential event management features to help you organize your events seamlessly. Our advanced ticketing solutions ensure a smooth and intuitive experience for both organizers and attendees, making us the go-to choice for event planning and ticketing. Our services include Event Support, Event Management, Event Promotions, Fast/Instant Payout, and Ticket Sales. We aim to transform the event planning and ticketing industry by providing dedicated customer-focused services that guarantee a smooth booking experience for attendees. With Book Event Africa, you can streamline your event planning process and optimize your event for success. Contact us today to learn more.',
+    keywords: ['About Book Events Africa', 'event ticket', 'event ticketing', 'event ticketing platform', 'book events africa', 'number 1 event booking platform', 'african events', 'ticket sales', 'party', 'event organizers', 'advanced ticketing solutions', 'ticketing solutions', 'event ticketing solutions', 'event planning', 'ticketing industry', 'smooth booking experience', 'smooth ticketing', ' Stress-free event management', 'Hassle-free event planning', 'Customer-focused services', 'Online ticketing']
 }
 
 

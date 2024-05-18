@@ -87,7 +87,7 @@ export default function Footer() {
       </div>
     </div>
     <div className='text-primary-800 font-[500] text-[14px] flex justify-center  pb-[25px] text-center'>
-      &copy;Copyright 2024. All rights reserved. CAC NO: 7411380
+      &copy;Copyright 2024. All rights reserved. RC NO: 7411380
     </div>
     {/* <div className='text-primary-800 font-[500] text-[14px] flex justify-center py-[50px] text-center'>
       <a href=''>Terms & Condition</a>

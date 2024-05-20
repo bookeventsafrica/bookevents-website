@@ -16,8 +16,8 @@ function PrivacyPolicy() {
     return <>
         <Navbar />
 
-        <section className="px-[1rem] md:px-[100px] bg-[#F1F2F6] py-[20px] md:py-[56px]">
-            <h3 className="text-center text-[20px] md:text-[35px] font-bold text-[#292D32] mb-[54px]">Privacy Policy</h3>
+        <section className="px-[1rem] lg:px-[100px] bg-[#F1F2F6] py-[20px] lg:py-[56px]">
+            <h3 className="text-center text-[20px] lg:text-[35px] font-bold text-[#292D32] mb-[54px]">Privacy Policy</h3>
             <p className="font-bold my-5">Effective Date: 5/04/2024 </p>
 
 

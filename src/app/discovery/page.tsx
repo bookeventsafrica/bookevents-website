@@ -35,15 +35,15 @@ export default function Discover(props: { searchParams: { s: string; category: s
     return (
         <>
             {/* banner */}
-            <div className=" bg-hero-discovery bg-no-repeat w-full h-[504px] md:bg-cover  text-white bg-center">
+            <div className=" bg-hero-discovery bg-no-repeat w-full h-[504px] lg:bg-cover  text-white bg-center">
 
                 <Navbar />
 
 
-                <div className="mt-[100px]  px-[2rem] md:px-[6.188rem] md:py-[0.75rem] ">
-                    <h2 className=" mx-auto text-center w-auto md:w-[672px] text-[25px] md:text-[50px] font-[700]">Discover Events
+                <div className="mt-[100px]  px-[2rem] lg:px-[6.188rem] lg:py-[0.75rem] ">
+                    <h2 className=" mx-auto text-center w-auto lg:w-[672px] text-[25px] lg:text-[50px] font-[700]">Discover Events
                     </h2>
-                    <p className="mx-auto  text-center w-auto md:w-[620px] text-[15px] mt-[24px] font-[400] mb-[20px] md:mb-[48px]">
+                    <p className="mx-auto  text-center w-auto lg:w-[620px] text-[15px] mt-[24px] font-[400] mb-[20px] lg:mb-[48px]">
                         Discover different kinds of events near you by using the find event search box. This events ranges from free, paid, online etc.
                     </p>
                     {/*  */}
@@ -54,7 +54,7 @@ export default function Discover(props: { searchParams: { s: string; category: s
             </div>
             <main>
 
-                <section className="md:px-[6.18rem]  bg-[#F1F2F6] py-[50px]">
+                <section className="lg:px-[6.18rem]  bg-[#F1F2F6] py-[50px]">
 
                     <EventSection title="Discover Events" events={events} />
                     {
@@ -64,8 +64,8 @@ export default function Discover(props: { searchParams: { s: string; category: s
                     }
                     {lastPage > 1 && <div className="flex gap-5 my-10 justify-center px-[10px]" >
 
-                        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px] md:w-[200px]" onClick={() => setOffset(offset - 1)} disabled={offset == 1}>Prev</Button>
-                        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px] md:w-[200px]" onClick={() => setOffset(offset + 1)} disabled={offset == lastPage} >Next</Button>
+                        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px] lg:w-[200px]" onClick={() => setOffset(offset - 1)} disabled={offset == 1}>Prev</Button>
+                        <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px] lg:w-[200px]" onClick={() => setOffset(offset + 1)} disabled={offset == lastPage} >Next</Button>
 
                     </div>}
                 </section>

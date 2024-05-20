@@ -35,9 +35,9 @@ function ConfirmTicket() {
     return <>
         <Navbar />
 
-        <section className="px-[1rem] md:px-[100px] bg-[#F1F2F6] py-[20px] md:py-[56px]">
+        <section className="px-[1rem] lg:px-[100px] bg-[#F1F2F6] py-[20px] lg:py-[56px]">
             <p className="text-red-400 text-center mb-3 text-bold text-[18px]">{error}</p>
-            <form className="flex  flex-col gap-4 px-2 md:px-0 w-full md:w-[451px] mx-auto" onSubmit={(e) => {
+            <form className="flex  flex-col gap-4 px-2 lg:px-0 w-full lg:w-[451px] mx-auto" onSubmit={(e) => {
                 e.preventDefault()
                 handleVerification();
             }}>

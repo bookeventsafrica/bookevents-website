@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import LocationSVG from 'public/svg/map-pin.svg'
-import CalendarSVG from 'public/svg/calendar.svg'
+import LocationSVG from '/public/svg/map-pin.svg'
+import CalendarSVG from '/public/svg/calendar.svg'
 import axios from "axios";
 import moment from "moment";
 import { Metadata } from "next";
@@ -73,8 +73,8 @@ export default async function Home({ params }: { params: { id: string } }) {
             <Navbar />
 
             <main >
-                <section className="px-[1rem] md:px-[6.18rem] my-[49px] cursor-pointer">
-                    {event && <div className="flex gap-10 md:gap-20 flex-col flex-wrap md:flex-row">
+                <section className="px-[1rem] lg:px-[6.18rem] my-[49px] cursor-pointer">
+                    {event && <div className="flex gap-10 lg:gap-20 flex-col flex-wrap lg:flex-row">
                         <div className="flex-1">
 
                             {/* <div
@@ -89,20 +89,20 @@ export default async function Home({ params }: { params: { id: string } }) {
                         <div className="flex-1">
                             <div className="flex justify-between items-center ">
 
-                                <h1 className="font-700 text-[20px] md:text-[30px]">{event?.name}</h1>
+                                <h1 className="font-700 text-[20px] lg:text-[30px]">{event?.name}</h1>
                                 <h3 className="text-primary-800 font-400 text-[14px] ">{event?.type}</h3>
 
                             </div>
                             {/* <div className="flex justify-between items-center mt-[10px]">
                                 <FavoriteSVG />
-                                <div className="text-[#707070] font-500 text-[14px] md:text-[16px]">Available</div>
+                                <div className="text-[#707070] font-500 text-[14px] lg:text-[16px]">Available</div>
                             </div> */}
                             <div className="mt-[10px]">
-                                <p className="font-400 text-[12px] md:text-[14px] text-[#707070] leading-[30px] ">{event?.details}</p>
+                                <p className="font-400 text-[12px] lg:text-[14px] text-[#707070] leading-[30px] ">{event?.details}</p>
 
                                 <div className="flex mt-5 gap-4 items-center">
                                     <LocationSVG className="text-[#9A9DAA]" />
-                                    <p className="text-[14px] md:text-[16px] font-400 text-[#292D32]">
+                                    <p className="text-[14px] lg:text-[16px] font-400 text-[#292D32]">
                                         {event?.location}
                                     </p>
                                 </div>
@@ -110,7 +110,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 <div className="flex mt-3 gap-4 items-center">
                                     <CalendarSVG className="text-[#9A9DAA]" />
 
-                                    <p className="text-[14px] md:text-[16px] font-400 text-[#292D32]">{moment(event?.eventDate).format('LL')} {moment(event?.eventTime, ['HH:mm']).format('HH:mm A')}
+                                    <p className="text-[14px] lg:text-[16px] font-400 text-[#292D32]">{moment(event?.eventDate).format('LL')} {moment(event?.eventTime, ['HH:mm']).format('HH:mm A')}
                                     </p>
 
                                 </div>
@@ -122,7 +122,7 @@ export default async function Home({ params }: { params: { id: string } }) {
                     </div>}
 
                 </section>
-                {event._id !== '66389392fa089ca534c30eb7' && <section className="md:px-[6.18rem]  bg-[#F1F2F6] py-[50px]" >
+                {event._id !== '66389392fa089ca534c30eb7' && <section className="lg:px-[6.18rem]  bg-[#F1F2F6] py-[50px]" >
                     <EventSection title="Upcoming Events" events={upcomingEvents.length && upcomingEvents} />
                 </section>}
 

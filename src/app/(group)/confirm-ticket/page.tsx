@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import dynamic from 'next/dynamic';
@@ -33,6 +33,7 @@ function ConfirmTicket() {
     }
 
     return <>
+
         <Navbar />
 
         <section className="px-[1rem] lg:px-[100px] bg-[#F1F2F6] py-[20px] lg:py-[56px]">
@@ -53,5 +54,13 @@ function ConfirmTicket() {
     </>
 }
 
+function index() {
 
-export default ConfirmTicket
+    return <Suspense>
+
+        <ConfirmTicket />
+    </Suspense>
+}
+
+
+export default index

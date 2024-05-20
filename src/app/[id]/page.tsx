@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import LocationSVG from 'public/svg/map-pin.svg'
-import CalendarSVG from 'public/svg/calendar.svg'
+import LocationSVG from '/public/svg/map-pin.svg'
+import CalendarSVG from '/public/svg/calendar.svg'
 import axios from "axios";
 import moment from "moment";
 import { Metadata } from "next";

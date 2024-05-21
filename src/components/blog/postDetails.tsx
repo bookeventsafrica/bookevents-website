@@ -89,7 +89,7 @@ const PostDetail = ({ post }: { post: SanityDocument }) => {
         <hr className="text-[#f3f3f3] mb-6" />
 
         <div className="flex items-center justify-between flex-wrap">
-            <h4 className="pb-2 lg:pb-0 text-[#98A2B3] text-[16px]">Share this post </h4>
+            <h4 className="pb-2 lg:pb-0 text-[#292D32] text-[16px]">Share this post </h4>
             <div className="flex gap-5 flex-wrap">
                 <button className="flex border-[1px] border-[#d0d5dd]  p-2 rounded-md cursor-pointer h-[44px] items-center gap-2 justify-center hover:border-primary-500 " onClick={copyLink}>
 

@@ -64,7 +64,10 @@ async function getUpcomingEvents() {
 export default async function Home({ params }: { params: { id: string } }) {
     const event = await getEventDetails(params.id);
     const upcomingEvents = await getUpcomingEvents()
-    
+    if (!event) {
+        window.location.href = '/'
+    }
+
 
     return (
         <>

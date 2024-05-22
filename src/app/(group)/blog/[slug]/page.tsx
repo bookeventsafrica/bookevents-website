@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: any }): Promise<Met
 
         keywords: [...post.categories, post?.title, 'ticket', 'book events', 'africa', 'event ticketing platform', 'event booking', 'organize events', 'ticket sales'],
         openGraph: {
-            images: [{ url: urlForImage(post.mainImage), width: 1200, height: 630 }],
+            images: [{ url: urlForImage(post?.mainImage), width: 1200, height: 630 }],
             description: post?.description,
             title: post?.title,
             type: 'article',
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: any }): Promise<Met
             card: 'summary_large_image',
             site: "@site",
             creator: "@creator",
-            images: urlForImage(post.mainImage)
+            images: urlForImage(post?.mainImage)
         }
     };
 }

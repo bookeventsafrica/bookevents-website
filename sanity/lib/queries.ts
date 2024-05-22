@@ -21,6 +21,7 @@ export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{
     categories[]->,
     "authorName": author->name,
     "authorImage": author->image,
+    "imageURL": mainImage.asset->url,
   }`;
 
 // Get all post slugs

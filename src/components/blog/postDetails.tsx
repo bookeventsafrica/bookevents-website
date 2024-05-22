@@ -11,6 +11,7 @@ import Facebook from '/public/svg/socials/facebook.svg'
 import Copy from '/public/svg/clone.svg'
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Newsletter from "../newsletter";
 
 
 const PostDetail = ({ post }: { post: SanityDocument }) => {
@@ -115,9 +116,10 @@ const PostDetail = ({ post }: { post: SanityDocument }) => {
             </div>
 
         </div>
-        {/* <hr className="text-[#f3f3f3] mt-6" />
+        <hr className="text-[#f3f3f3] mt-6" />
+        <Newsletter tag={'blog'} />
 
-<p> Subscribe to Newsletter</p> */}
+
     </article>;
 }
 

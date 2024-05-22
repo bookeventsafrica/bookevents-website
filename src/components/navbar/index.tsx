@@ -53,7 +53,7 @@ function Navbar() {
             <ul className="px-5 flex flex-col items-center lg:justify-center lg:text-center text-primary-800 gap-10">
             <li><Link href="/" className={`${currentPath === "/" ? " font-semibold  text-primary-800 " : "text-primary-800"} font-normal text-[16px]`}>Home</Link></li>
                 <li><Link href="/about-us" className={`${currentPath === "/about-us" ? " font-semibold  text-primary-800 " : "text-primary-800"} font-normal text-[16px]`}>About Us</Link></li>
-                <li><Link href="/blog" className={`${currentPath === "/blog" ?  "text-white font-semibold px-3 bg--500 rounded-md": "text-primary-800"} font-normal text-[16px]`}>Blog</Link></li>
+                <li><Link href="/blog" className={`${currentPath === "/blog" ? " font-semibold  text-primary-800 " : "text-primary-800" } font-normal text-[16px]`}>Blog</Link></li>
                 <li><a href={appUrl} className={`font-normal text-primary-800 text-[16px]`}>Login</a></li>
             </ul>
 

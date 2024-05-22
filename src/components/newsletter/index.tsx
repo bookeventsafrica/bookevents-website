@@ -26,13 +26,13 @@ const Newsletter = ({ tag }: { tag?: string }) => {
             setMessage('Subscription successful')
             setLoading(false)
         } catch (err) {
+            setLoading(false)
             const error = err as any
             if (error.response.data) {
                 setMessage(error.response.data.message)
             }
             console.error(err);
             setEmail('')
-            setLoading(false)
         }
     }
 
@@ -45,7 +45,7 @@ const Newsletter = ({ tag }: { tag?: string }) => {
             <div>
                 <form className="flex  flex-col lg:flex-row items-center gap-4 px-2 lg:px-0" onSubmit={submit}>
                     <div className="w-[300px] lg:w-[451px]">
-                        <input type="email" className="h-[40px] rounded-[8px] outline-none w-full px-3 font-400 text-[16px] text-[#959595]" placeholder="Enter email" required onChange={handleChange} />
+                        <input type="email" value={email} className="h-[40px] rounded-[8px] outline-none w-full px-3 font-400 text-[16px] text-black" placeholder="Enter email" required onChange={handleChange} />
                     </div>
 
                     <Button className="rounded-[4px]" type="submit" disabled={loading}>Subscribe</Button>

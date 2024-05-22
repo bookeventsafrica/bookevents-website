@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </div>
       <main >
-        <section className="px-[2rem] lg:px-[6.18rem] my-[49px] cursor-pointer">
+        <section className="lg:px-[6.18rem] my-[49px] cursor-pointer">
           <h3 className="mb-[54px]">Browse by category</h3>
           <div className="flex gap-[17px] flex-wrap justify-center lg:justify-between mb-[10px]">
 

@@ -23,20 +23,20 @@ export async function generateMetadata({ params }: { params: any }): Promise<Met
         title: post?.title,
         description: post?.description,
 
-        keywords: [...post.categories, post?.title, 'ticket', 'book events', 'africa', 'event ticketing platform', 'event booking', 'organize events', 'ticket sales'],
+        keywords: [...post?.categories, post?.title, 'ticket', 'book events', 'africa', 'event ticketing platform', 'event booking', 'organize events', 'ticket sales'],
         openGraph: {
-            images: [{ url: urlForImage(post?.mainImage), width: 1200, height: 630 }],
+            images: [{ url: post?.imageURL, width: 1200, height: 630 }],
             description: post?.description,
             title: post?.title,
             type: 'article',
-            tags: [...post.categories],
-            authors: post.authorName
+            tags: [...post?.categories],
+            authors: post?.authorName
         },
         twitter: {
             card: 'summary_large_image',
             site: "@site",
             creator: "@creator",
-            images: urlForImage(post?.mainImage)
+            images: post?.imageURL
         }
     };
 }

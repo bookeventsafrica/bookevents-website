@@ -15,8 +15,8 @@ function TermsAndConditions() {
     return <>
         <Navbar />
 
-        <section className="px-[1rem] md:px-[100px] bg-[#F1F2F6] py-[20px] md:py-[56px]">
-            <h3 className="text-center text-[20px] md:text-[35px] font-bold text-[#292D32] mb-[54px]">Terms & Conditions</h3>
+        <section className="px-[1rem] lg:px-[100px] bg-[#F1F2F6] py-[20px] lg:py-[56px]">
+            <h3 className="text-center text-[20px] lg:text-[35px] font-bold text-[#292D32] mb-[54px]">Terms & Conditions</h3>
 
 
             <div className="bg-white w-full px-[50px] py-[22px] mb-[24px]">

@@ -27,29 +27,29 @@ function AboutUs() {
             </div>
         </section>
 
-        <section className="px-[2rem] md:px-[6.18rem] bg-[#fff] py-[50px]  flex justify-center">
-            <div className="flex gap-[38px] flex-col md:flex-row">
+        <section className="px-[2rem] lg:px-[6.18rem] bg-[#fff] py-[50px]  flex justify-center">
+            <div className="flex gap-[38px] flex-col lg:flex-row">
                 <div className="flex-1">
-                    <h3 className="font-bold text-[25px] md:text-[45px] mb-[20px] md:mb-[48px]">Who we are?</h3>
-                    <p className="m-0 font-normal text-[14px] md:text-[20px] text-[#292D32]  mb-[20px] md:mb-[48px] md:w-[587px]">
+                    <h3 className="font-bold text-[25px] lg:text-[45px] mb-[20px] lg:mb-[48px]">Who we are?</h3>
+                    <p className="m-0 font-normal text-[14px] lg:text-[20px] text-[#292D32]  mb-[20px] lg:mb-[48px] lg:w-[587px]">
                         Book Event Africa streamlines event management by leveraging advanced ticketing solutions, ensuring a seamless and intuitive experience for both organizers and attendees.
                     </p>
-                    <p className="m-0 font-normal text-[14px] md:text-[20px] text-[#292D32] mb-[20px] md:mb-[48px] md:w-[587px]">Book Event Africa aims to transform the event planning and ticketing industry, providing attendees with a smooth booking experience and offering event planners dedicated, customer-focused services.</p>
+                    <p className="m-0 font-normal text-[14px] lg:text-[20px] text-[#292D32] mb-[20px] lg:mb-[48px] lg:w-[587px]">Book Event Africa aims to transform the event planning and ticketing industry, providing attendees with a smooth booking experience and offering event planners dedicated, customer-focused services.</p>
                 </div>
                 <div className="flex-1">
-                    <Image src='/img/event.png' width={455} height={426} alt="Book Event Team Providing Event support" className="w-full md:w-[455px]" />
+                    <Image src='/img/event.png' width={455} height={426} alt="Book Event Team Providing Event support" className="w-full lg:w-[455px]" />
                 </div>
             </div>
 
         </section>
 
-        <section className="px-[2rem] md:px-[6.18rem] bg-[#fff] py-[50px]  flex justify-center">
+        <section className="px-[2rem] lg:px-[6.18rem] bg-[#fff] py-[50px]  flex justify-center">
 
             <div >
-                <h3 className="text-center font-bold text-[45px] mb-[20px] md:mb-[48px]">Our Services</h3>
+                <h3 className="text-center font-bold text-[45px] mb-[20px] lg:mb-[48px]">Our Services</h3>
 
                 <div className="flex gap-[32px] flex-wrap">
-                    <div className="w-full md:w-[250px] bg-secondary-500 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
+                    <div className="w-full lg:w-[250px] bg-secondary-500 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
                         <div className="flex-1 mb-[18px]">
                             <Image src={'/img/support.png'} width={200} height={126} alt='Book Event Africa Event Support' className="h-[126px] object-contain" />
                         </div>
@@ -62,7 +62,7 @@ function AboutUs() {
                             <p className="text-[14px] font-normal text-[#292D32]">Let us handle the venue ticket sales so you can focus on your event&apos;s success.</p>
                         </div>
                     </div>
-                    <div className="w-full md:w-[250px] bg-primary-500 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
+                    <div className="w-full lg:w-[250px] bg-primary-500 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
                         <div className="flex-1  mb-[18px]">
                             <Image src={'/img/promotions.png'} width={200} height={126} alt='Book Event Africa Event Promotions' className="h-[126px] object-contain" />
                         </div>
@@ -73,7 +73,7 @@ function AboutUs() {
                             <p className="text-[14px] font-normal ">Get your event seen! We promote on social media to reach a wider audience.</p>
                         </div>
                     </div>
-                    <div className="w-full md:w-[250px] bg-tertiary-500 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
+                    <div className="w-full lg:w-[250px] bg-tertiary-500 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
                         <div className="flex-.8  mb-[18px]">
                             <Image src={'/img/ticket.png'} width={200} height={126} alt='Book Event Africa Ticket Sales' className="h-[126px] object-contain" />
                         </div>
@@ -84,7 +84,7 @@ function AboutUs() {
                             <p className="text-[14px] font-normal text-[#292D32] ">Start selling tickets online today ! It&apos;s quick and easy.</p>
                         </div>
                     </div>
-                    <div className="w-full md:w-[250px] bg-primary-100 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
+                    <div className="w-full lg:w-[250px] bg-primary-100 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
                         <div className="flex-1 mb-[18px]">
 
                             <Image src={'/img/manage.png'} width={200} height={126} alt='Book Event Africa Event Management' className="h-[126px] object-contain" />
@@ -105,16 +105,16 @@ function AboutUs() {
 
         </section>
 
-        <section className="px-[2rem] md:px-[6.18rem] bg-[#F1F2F6] py-[50px]  flex justify-center">
+        <section className="px-[2rem] lg:px-[6.18rem] bg-[#F1F2F6] py-[50px]  flex justify-center">
 
             <div>
-                <div className=" mb-[20px] md:mb-[48px]">
-                    <h3 className="text-center font-bold text-[25px] md:text-[45px] ">Team Members</h3>
-                    <p className="text-center text-[#292D32] text-[14px] md:text-[20px]">Meet the BEA Team Members</p>
+                <div className=" mb-[20px] lg:mb-[48px]">
+                    <h3 className="text-center font-bold text-[25px] lg:text-[45px] ">Team Members</h3>
+                    <p className="text-center text-[#292D32] text-[14px] lg:text-[20px]">Meet the BEA Team Members</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-[48px]">
-                    <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-[48px]">
+                    <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
                         <Image loading={'lazy'} src={'/img/cto.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Ukpai  Chukwuemeka</h4>
@@ -137,7 +137,7 @@ function AboutUs() {
                         </div>
                     </div>
 
-                    <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
+                    <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
                         <Image loading={'lazy'} src={'/img/co-founder.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Shaka (Osas) Wisdom</h4>
@@ -161,7 +161,7 @@ function AboutUs() {
                         </div>
                     </div>
 
-                    <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
+                    <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
                         <Image loading={'lazy'} src={'/img/bea-ui-ux.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Eze Chizoba</h4>
@@ -185,7 +185,7 @@ function AboutUs() {
                         </div>
                     </div>
 
-                    <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
+                    <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
                         <Image loading={'lazy'} src={'/img/hr.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Becky Ihejika</h4>
@@ -208,7 +208,7 @@ function AboutUs() {
                         </div>
                     </div>
 
-                    <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
+                    <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
                         <Image loading={'lazy'} src={'/img/legal.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Vincent Ifechukwude Onukwu</h4>
@@ -231,7 +231,7 @@ function AboutUs() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full md:w-[274px] bg-white  rounded-[4px] cursor-pointer">
+                    <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
                         <Image loading={'lazy'} src={'/img/socials.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Doyinsola Akintola</h4>

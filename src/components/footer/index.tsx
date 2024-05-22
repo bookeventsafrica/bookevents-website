@@ -9,7 +9,7 @@ export default function Footer() {
   const appUrl = process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_APP_API_DEV + '/auth' : process.env.NEXT_PUBLIC_APP_API_PROD + '/auth';
 
   return <footer className=" bg-white footer">
-    <div className="px-[2rem] py-[20px] md:px-[6.18rem] md:py-[40px] gap-[40px] md:gap-[164px] flex flex-col md:flex-row flex-wrap">
+    <div className="px-[2rem] py-[20px] lg:px-[6.18rem] lg:py-[40px] gap-[40px] lg:gap-[164px] flex flex-col lg:flex-row flex-wrap">
       <div className="">
         <Link href={'/'}>
 
@@ -17,7 +17,7 @@ export default function Footer() {
         </Link>
       </div>
       {/*  */}
-      <div className="text-primary-800 flex justify-between flex-1 flex-col md:flex-row gap-[20px] md:gap-0 flex-wrap">
+      <div className="text-primary-800 flex justify-between flex-1 flex-col lg:flex-row gap-[20px] lg:gap-0 flex-wrap">
         <div>
           <h3 className="text-primary-800 mb-6 font-bold text-[18px]">Products</h3>
           <div className="flex flex-col gap-y-6 text-[14px] cursor-pointer">
@@ -33,12 +33,12 @@ export default function Footer() {
         <div>
           <h3 className="text-primary mb-6 font-bold text-[18px]">Company</h3>
           <div className="flex flex-col gap-y-6 text-[14px] cursor-pointer">
-          <Link href='#'>
+          <Link href='/about-us'>
               <span>About Us</span>
 
             </Link>
-            <Link href='#'>
-              <span>Blog Coming SOON !</span>
+            <Link href='/blog'>
+              <span>Blog</span>
 
             </Link>
             <Link href='/faqs'>
@@ -87,7 +87,7 @@ export default function Footer() {
       </div>
     </div>
     <div className='text-primary-800 font-[500] text-[14px] flex justify-center  pb-[25px] text-center'>
-      &copy;Copyright 2024. All rights reserved. CAC NO: 7411380
+      &copy;Copyright 2024. All rights reserved. RC NO: 7411380
     </div>
     {/* <div className='text-primary-800 font-[500] text-[14px] flex justify-center py-[50px] text-center'>
       <a href=''>Terms & Condition</a>

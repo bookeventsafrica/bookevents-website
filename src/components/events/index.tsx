@@ -24,7 +24,7 @@ export default function Item({ event, ...props }: { event: IEvent }) {
         </div>
 
         <a href={`/${event.slug}`} className="no-underline">
-            <div className="px-[20px] py-[15px] flex items-start gap-5 md:gap-0">
+            <div className="px-[20px] py-[15px] flex items-start gap-5 lg:gap-0">
                 <div className="flex flex-col flex-[.15]">
                     <h5 className="font-[700] text-[16px] text-primary-800 m-0">{formatDate(event.eventDate).toUpperCase()}</h5>
                     <h3 className="text-[#000] font-[700] text-[25px] m-0">{moment(event.eventDate).format('DD')}</h3>

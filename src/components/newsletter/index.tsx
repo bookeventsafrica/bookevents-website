@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, SetStateAction } from 'react';
 
 import axios from "axios";

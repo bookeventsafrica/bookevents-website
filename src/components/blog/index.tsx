@@ -17,7 +17,7 @@ const BlogCard = ({ post }: { post: any }) => {
     <div className="mt-[24px]">
       <div>
         <h3 className="text-[24px] font-[700] text-[#292D32] mb-[12px]">{post.title}</h3>
-        <p className="my-0  text-[16px] font-[400]">{post.description && post.description.substring(0, 100) + "..."} </p>
+        <p className="my-0  text-[16px] font-[400]">{post.description && post.description.substring(0, 150) + "..."} </p>
       </div>
       <div className="flex items-center mt-[12px] gap-2 flex-wrap">
         <div className="flex flex-row items-center gap-2">

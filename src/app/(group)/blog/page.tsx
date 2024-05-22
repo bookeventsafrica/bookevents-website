@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 
 async function Blog() {
     const posts = await sanityFetch<SanityDocument>({ query: postsQuery });
-    console.log(posts)
     return <>
         <Navbar />
 

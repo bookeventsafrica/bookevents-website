@@ -12,6 +12,7 @@ const BlogCard = ({ post }: { post: any }) => {
       alt={post?.mainImage?.alt}
       width={341}
       height={300}
+    
       className="h-[300px] w-full object-cover"
     />
     <div className="mt-[24px]">
@@ -28,6 +29,7 @@ const BlogCard = ({ post }: { post: any }) => {
             alt={post?.authorImage?.alt}
             width={24}
             height={24}
+          
             className="h-[24px] w-[24px] rounded-full"
           />
           <p className="text-[14px] text-[#292D32]">{post.authorName}</p>

@@ -37,7 +37,7 @@ function AboutUs() {
                     <p className="m-0 font-normal text-[14px] lg:text-[20px] text-[#292D32] mb-[20px] lg:mb-[48px] lg:w-[587px]">Book Event Africa aims to transform the event planning and ticketing industry, providing attendees with a smooth booking experience and offering event planners dedicated, customer-focused services.</p>
                 </div>
                 <div className="flex-1">
-                    <Image src='/img/event.png' width={455} height={426} alt="Book Event Team Providing Event support" className="w-full lg:w-[455px]" />
+                    <Image src='/img/event.png' width={455} height={426} alt="Book Event Team Providing Event support" className="w-full lg:w-[455px]"    />
                 </div>
             </div>
 
@@ -51,7 +51,7 @@ function AboutUs() {
                 <div className="flex gap-[32px] flex-wrap">
                     <div className="w-full lg:w-[250px] bg-secondary-500 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
                         <div className="flex-1 mb-[18px]">
-                            <Image src={'/img/support.png'} width={200} height={126} alt='Book Event Africa Event Support' className="h-[126px] object-contain" />
+                            <Image src={'/img/support.png'} width={200} height={126} alt='Book Event Africa Event Support' className="h-[126px] object-contain"   />
                         </div>
 
                         <div className="text-center !text-white">
@@ -64,7 +64,7 @@ function AboutUs() {
                     </div>
                     <div className="w-full lg:w-[250px] bg-primary-500 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
                         <div className="flex-1  mb-[18px]">
-                            <Image src={'/img/promotions.png'} width={200} height={126} alt='Book Event Africa Event Promotions' className="h-[126px] object-contain" />
+                            <Image src={'/img/promotions.png'} width={200} height={126} alt='Book Event Africa Event Promotions' className="h-[126px] object-contain"  />
                         </div>
                         <div className="text-center !text-white">
                             <h4 className="text-[16px] font-bold  mb-[21px]">
@@ -75,7 +75,7 @@ function AboutUs() {
                     </div>
                     <div className="w-full lg:w-[250px] bg-tertiary-500 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
                         <div className="flex-.8  mb-[18px]">
-                            <Image src={'/img/ticket.png'} width={200} height={126} alt='Book Event Africa Ticket Sales' className="h-[126px] object-contain" />
+                            <Image src={'/img/ticket.png'} width={200} height={126} alt='Book Event Africa Ticket Sales' className="h-[126px] object-contain"  />
                         </div>
                         <div className="text-center !text-white">
                             <h4 className="text-[16px] font-bold text-[#292D32]  mb-[21px]">
@@ -87,7 +87,7 @@ function AboutUs() {
                     <div className="w-full lg:w-[250px] bg-primary-100 shadow-lg px-[18px] py-[36px] rounded-[4px] flex flex-col items-center">
                         <div className="flex-1 mb-[18px]">
 
-                            <Image src={'/img/manage.png'} width={200} height={126} alt='Book Event Africa Event Management' className="h-[126px] object-contain" />
+                            <Image src={'/img/manage.png'} width={200} height={126} alt='Book Event Africa Event Management' className="h-[126px] object-contain"  />
 
                         </div>
                         <div className="text-center !text-white">
@@ -115,7 +115,7 @@ function AboutUs() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-[48px]">
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/cto.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/cto.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100}    />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Ukpai  Chukwuemeka</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Co-Founder / CTO</p>
@@ -138,7 +138,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/co-founder.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/co-founder.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100}   />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Shaka (Osas) Wisdom</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Co-Founder</p>
@@ -162,7 +162,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/bea-ui-ux.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/bea-ui-ux.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100}  />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Eze Chizoba</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Product Designer</p>
@@ -186,7 +186,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/hr.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/hr.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100}   />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Becky Ihejika</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Human Resources</p>
@@ -209,7 +209,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/legal.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/legal.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100}   />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Vincent Ifechukwude Onukwu</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Legal Practitioner </p>
@@ -232,7 +232,7 @@ function AboutUs() {
                         </div>
                     </div>
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/socials.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100} />
+                        <Image loading={'lazy'} src={'/img/socials.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100}  />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Doyinsola Akintola</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Social Media Manager</p>

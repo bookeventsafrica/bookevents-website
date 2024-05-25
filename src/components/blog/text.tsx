@@ -10,6 +10,7 @@ export const Text = {
             return (
                 <div className="relative w-full h-96 m-2 lg:m-5 mx-auto">
                     <Image
+                     
                         className="object-cover lg:object-contain"
                         src={urlForImage(value)}
                         alt={value?.alt}

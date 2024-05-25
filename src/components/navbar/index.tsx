@@ -22,7 +22,7 @@ function Navbar() {
     return <header className="bg-white text-white justify-between  flex items-center  p-2 lg:py-[14px] lg:px-[90px]">
         <div className="flex lg:items-center">
             <Link href={'/'}>
-                <Image src="/logo.png" alt="bookEventsAfrica_logo" width={150} height={150} />
+                <Image src="/logo.png" alt="bookEventsAfrica_logo" width={150} height={150}  priority    placeholder="blur"/>
             </Link>
         </div>
 
@@ -45,7 +45,7 @@ function Navbar() {
         <div className={`fixed top-0 left-0 w-full overflow-hidden  bg-white z-50 py-2 shadow ${isMenuOpen ? '' : 'hidden'}`}>
             <div className="flex justify-between items-center mb-5 px-4">
                 <Link href={'/'}>
-                    <Image src="/logo.png" alt="bookEventsAfrica_logo" width={150} height={150} />
+                    <Image src="/logo.png" alt="bookEventsAfrica_logo" width={150} height={150} priority    placeholder="blur" />
                 </Link>
                 <CancelIcon className="text-primary-800 cursor-pointer" onClick={toggleMenu} />
 

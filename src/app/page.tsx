@@ -1,11 +1,10 @@
-"use client"
 /* eslint-disable @next/next/no-img-element */
 import CircleSvg from '/public/svg/circle.svg';
-import {  useEffect, useState } from "react";
 import axios from "axios";
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Newsletter from '@/components/newsletter';
+import { IEvent } from '@/utils';
 
 
 const EventSection = dynamic(() => import("../components/sections/events"));
@@ -13,31 +12,30 @@ const Search = dynamic(() => import('../components/search'));
 const Navbar = dynamic(() => import('../components/navbar'));
 const Footer = dynamic(() => import('../components/footer'));
 
-export default function Home() {
-  const [events, setEvents] = useState([])
-  const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    fetch()
-    fetchCategories()
-  }, [])
-
-  const fetch = async () => {
-    try {
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1&sort=-1`)
-      setEvents(data.data);
-    } catch (err) {
-    }
+const fetch = async () => {
+  try {
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1&sort=-1`)
+    return data.data
+  } catch (err) {
   }
+}
 
-  const fetchCategories = async () => {
-    try {
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/category`)
-      setCategories(data)
-    } catch (err) {
+const fetchCategories = async () => {
+  try {
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/category`)
+    return data
+  } catch (err) {
 
-    }
   }
+}
+
+export default async function Home() {
+
+
+  const categories = await fetchCategories()
+  const events: IEvent[] = await fetch()
+
+
 
 
   return (
@@ -72,8 +70,8 @@ export default function Home() {
           <h3 className="mb-[54px]">Browse by category</h3>
           <div className="flex gap-[17px] flex-wrap justify-center lg:justify-between mb-[10px]">
 
-            {categories.length > 0 && categories.map((category: any, i) => {
-              return <Link href={`/discovery?category=${category._id}`} key={i}>
+            {categories.length > 0 && categories.map((category: any) => {
+              return <Link href={`/discovery?category=${category._id}`} key={category._id}>
                 <div className={`w-[165px] h-[165px] rounded-full bg-no-repeat flex justify-center items-center text-white bg-cover`} style={{
                   backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${category.image})`
                 }}>

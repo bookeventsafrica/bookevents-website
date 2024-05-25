@@ -44,7 +44,7 @@ const PostDetail = ({ post }: { post: SanityDocument }) => {
     return <article className="w-full lg:w-[708px] mx-auto  mb-5 mt-[15px] lg:mt-[30px]">
         {post?.mainImage ? (
             <Image
-            placeholder="blur"
+        
                 src={
                     urlForImage(post.mainImage)
                 }
@@ -57,7 +57,7 @@ const PostDetail = ({ post }: { post: SanityDocument }) => {
         <h1 className="text-[32px] lg:text-[42px] font-[700] flex text-[#292D32]">{post.title}</h1>
         <div className="flex flex-row gap-4 items-center my-5">
             <Image
-               placeholder="blur"
+           
                 src={
                     urlForImage(post.authorImage)
                 }

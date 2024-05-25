@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="">
         <Link href={'/'}>
 
-          <Image src={'/logo.png'} alt="bookEventsAfrica_logo" width={200} height={64}    placeholder="blur" priority />
+          <Image src={'/logo.png'} alt="bookEventsAfrica_logo" width={200} height={64}     priority   />
         </Link>
       </div>
       {/*  */}

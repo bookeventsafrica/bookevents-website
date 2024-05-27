@@ -38,33 +38,28 @@ export interface IEvent {
 
   slug: string;
 
-  isAttendeeCharged: boolean;
+  isAttendeeCharged: boolean
 
-  percentage: string;
+  percentage: string
 }
 
 export function isEventPast(eventDateStr: string) {
-  // const eventDate = new Date(eventDateStr);
-  // const today = new Date();
-  // return eventDate < today;
-
-  //close it after 20hrs
   const eventDate = new Date(eventDateStr);
-  // Add 20 hours to the event date
-  eventDate.setHours(eventDate.getHours() + 22);
   const today = new Date();
   return eventDate < today;
 }
+
 
 type DebouncedFunction<F extends (...args: any[]) => any> = (
   ...args: Parameters<F>
 ) => void | Promise<void>; // Allow both void and Promise return types
 
+
 export function debounce<F extends (...args: any[]) => any>(
   func: F,
   delay: number
 ): DebouncedFunction<F> {
-  let timeout: any;
+  let timeout: any 
 
   return (...args: Parameters<F>) => {
     clearTimeout(timeout); // Type assertion to cast to number

@@ -44,7 +44,13 @@ export interface IEvent {
 }
 
 export function isEventPast(eventDateStr: string) {
+  // const eventDate = new Date(eventDateStr);
+  // const today = new Date();
+  // return eventDate < today;
+
   const eventDate = new Date(eventDateStr);
+  // Add 20 hours to the event date
+  eventDate.setHours(eventDate.getHours() + 20);
   const today = new Date();
   return eventDate < today;
 }

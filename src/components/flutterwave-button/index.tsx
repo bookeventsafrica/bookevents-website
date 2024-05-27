@@ -2,6 +2,11 @@
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import { forwardRef } from "react";
 
+enum TransactionType {
+    TicketPurchase = 'TICKET PURCHASE',
+    OrganizerDeposit = 'ORGANIZER DEPOSIT',
+}
+
 export default forwardRef(function CustomFlutterWaveButton({ amount, email, title, ticketId, eventId, qty, description, close, disabled, ...props }: any, ref) {
 
     const config = {
@@ -13,12 +18,17 @@ export default forwardRef(function CustomFlutterWaveButton({ amount, email, titl
         customer: {
             email: email,
             phone_number: '',
-            name: `${eventId} ${ticketId} ${qty}`,
+            name: `${JSON.stringify({
+                eventId,
+                ticketId,
+                qty,
+                'type': TransactionType.TicketPurchase
+            })}`
         },
         customizations: {
             title,
             description,
-            logo: "https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg",
+            logo: "https://www.bookevents.africa/IMG_5268.png",
         },
     };
     const handleFlutterPayment = useFlutterwave(config);
@@ -32,6 +42,7 @@ export default forwardRef(function CustomFlutterWaveButton({ amount, email, titl
             onClose: () => {
                 close()
             },
+
         })
     }}>Pay Now</button>
 

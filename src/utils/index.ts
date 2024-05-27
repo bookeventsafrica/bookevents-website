@@ -1,6 +1,7 @@
 import moment from "moment";
 
-export const formatMoney = (n: number) => {
+export const formatMoney = (n: number | string) => {
+  if (typeof n === "string") return;
   return new Intl.NumberFormat().format(n);
 };
 
@@ -38,9 +39,11 @@ export interface IEvent {
 
   slug: string;
 
-  isAttendeeCharged: boolean
+  isAttendeeCharged: boolean;
 
-  percentage: string
+  percentage: string;
+
+  allowPhoneInput: boolean;
 }
 
 export function isEventPast(eventDateStr: string) {
@@ -55,17 +58,15 @@ export function isEventPast(eventDateStr: string) {
   return eventDate < today;
 }
 
-
 type DebouncedFunction<F extends (...args: any[]) => any> = (
   ...args: Parameters<F>
 ) => void | Promise<void>; // Allow both void and Promise return types
-
 
 export function debounce<F extends (...args: any[]) => any>(
   func: F,
   delay: number
 ): DebouncedFunction<F> {
-  let timeout: any 
+  let timeout: any;
 
   return (...args: Parameters<F>) => {
     clearTimeout(timeout); // Type assertion to cast to number

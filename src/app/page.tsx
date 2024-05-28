@@ -47,12 +47,12 @@ export default async function Home() {
 
 
         <div className="mt-[92px]  px-[2rem] lg:px-[6.188rem] lg:py-[0.75rem] ">
-          <h2 className=" mx-auto text-center w-auto lg:w-[672px] text-[25px] lg:text-[50px] font-[700]">Let’s make your events  <span className="relative">
-            <CircleSvg className="absolute lg:-left-80 circleText hidden lg:block" />
-            Memorable
+          <h2 className=" mx-auto text-center w-auto lg:w-[800px] text-[25px] lg:text-[50px] font-[700]">Book Events Africa, your gateway to   <span className="relative">
+            <CircleSvg className="absolute lg:-left-[138px] circleText hidden lg:block" />
+            unforgettable experiences
           </span> </h2>
-          <p className="mx-auto  text-center w-auto lg:w-[620px] text-[15px] mt-[24px] font-[400] mb-[48px]">
-            For all your event ticketing needs, from small gatherings to the large festivals, our event booking system has you covered
+          <p className="mx-auto  text-center w-auto lg:w-[620px] text-[14px] lg:text-[18px] mt-[24px] font-[400] mb-[48px]">
+          We curate extraordinary events that cater to diverse interests. From electrifying concerts and captivating workshops to thought-provoking conferences and immersive exhibitions, we offer something for everyone.
           </p>
 
           {/* <div className="flex justify-center">

@@ -18,6 +18,13 @@ interface IEventTicket extends IEvent {
 const schema = Yup.object().shape({
     quantity: Yup.number().required().min(1, 'Quantity must be greater than 0'),
     email: Yup.string().required('Please Email is required').email('Email must be valid'),
+    phone: Yup.string()
+});
+
+const schemaPhone = Yup.object().shape({
+    quantity: Yup.number().required().min(1, 'Quantity must be greater than 0'),
+    email: Yup.string().required('Please Email is required').email('Email must be valid'),
+    phone: Yup.string().required('Please Phone number is required').matches(/^\+(?:234|233)\d{10}$/, 'Phone number must be in +[country code]XXXXXXXXX format'),
 });
 
 function TicketArea({ event }: { event: IEventTicket }) {
@@ -32,13 +39,14 @@ function TicketArea({ event }: { event: IEventTicket }) {
         initialValues: {
             email: "",
             quantity: 1,
+            phone: ""
         },
 
         // Pass the Yup schema to validate the form
-        validationSchema: schema,
+        validationSchema: event.allowPhoneInput ? schemaPhone : schema,
 
         // Handle form submission
-        onSubmit: async ({ email, quantity }) => {
+        onSubmit: async ({ email, quantity, phone }) => {
             // Make a request to your backend to store the data
             if (selectedTicket.ticketPlan == TicketPlan.FREE) {
                 //register
@@ -46,11 +54,11 @@ function TicketArea({ event }: { event: IEventTicket }) {
                     setLoading(true)
                     await axios.post(`${process.env.NEXT_PUBLIC_ENV === 'development' ?
                         process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/register`, {
-                        ticketId: selectedTicket._id, eventId: event._id, email, quantity,
+                        ticketId: selectedTicket._id, eventId: event._id, email, quantity, phone
                     });
                     setSelectedTicket({} as ITicket);
                     setLoading(false)
-                    form.setValues({ email: '', quantity: 1 });
+                    form.setValues({ email: '', quantity: 1, phone: "" });
                     Notiflix.Notify.success(
                         'Ticket Booked',
                         {
@@ -71,7 +79,12 @@ function TicketArea({ event }: { event: IEventTicket }) {
 
 
 
-
+    const calculateTotal = () => {
+        if (selectedTicket.ticketPlan === TicketPlan.PAID) {
+            return (values.quantity * selectedTicket.price!) + (percentageToAdd * values.quantity);
+        }
+        return TicketPlan.FREE;
+    };
 
     const debouncedSelectTicket = debounce(async (ticket: ITicket) => {
         if (ticket) { // Check if ticket is actually selected
@@ -112,6 +125,14 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             {errors.email && touched.email && <span className="text-[red] font-light text-[12px] mt-1">{errors.email}</span>}
                         </div>
 
+                        {event.allowPhoneInput && <div className="flex flex-col mb-3">
+                            <label className="font-light text-[15px] mb-1" htmlFor="email">Phone Number</label>
+                            <input type="tel" className="bg-[#fff] border rounded-sm p-2  border-1 border-[#959595] outline-none" placeholder="+2347052391599" id="phone" name="phone" value={values.phone}
+                                onBlur={handleBlur}
+                                onChange={handleChange} required={true} />
+                            {errors.phone && touched.phone && <span className="text-[red] font-light text-[12px] mt-1">{errors.phone}</span>}
+                        </div>}
+
                         <div className="flex flex-col mb-5">
                             <label className="font-light text-[15px] mb-1" htmlFor="quantity">Quantity</label>
                             <input type="number" className="bg-[#fff] border rounded-sm p-2 border-1 border-[#959595] outline-none" id="quantity" name='quantity' value={values.quantity}
@@ -126,8 +147,8 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             </div>
                             <div className="flex justify-between mb-5">
                                 <h3 className="font-light uppercase text-[12px]">Total</h3>
-                                {selectedTicket.ticketPlan == TicketPlan.PAID && <h6 className="font-light text-[18px] text-primary-800" >{formatMoney((values.quantity * selectedTicket.price!) + (percentageToAdd * values.quantity))}</h6>}
-                                {selectedTicket.ticketPlan == TicketPlan.FREE && <h6 className="font-light text-[18px] text-primary-800" >{TicketPlan.FREE}</h6>}
+                                {selectedTicket.ticketPlan == TicketPlan.PAID && <h6 className="font-light text-[18px] text-primary-800" >{formatMoney(calculateTotal())}</h6>}
+                                {selectedTicket.ticketPlan == TicketPlan.FREE && <h6 className="font-light text-[18px] text-primary-800" >{calculateTotal()}</h6>}
                             </div>
                         </div>
                         {selectedTicket.ticketPlan == TicketPlan.FREE && <Button className="w-full rounded-sm p-3" disabled={!isValid || !dirty || loading || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > selectedTicket.limit} type={'submit'} >Book Now</Button>}
@@ -135,7 +156,8 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             onClick={() => setLoading(true)}
                             disabled={loading || !isValid || !dirty || isEventPast(event.eventDate) || selectedTicket.totalRegistered + values.quantity > selectedTicket.limit}
                             email={values.email}
-                            amount={(values.quantity * selectedTicket.price!) + (percentageToAdd * values.quantity)}
+                            phone={values.phone}
+                            amount={calculateTotal()}
                             title={event.name}
                             ticketId={selectedTicket._id}
                             eventId={event._id}
@@ -143,7 +165,7 @@ function TicketArea({ event }: { event: IEventTicket }) {
                             description={event.details}
                             close={() => {
                                 setLoading(false)
-                                form.setValues({ email: '', quantity: 1 });
+                                form.setValues({ email: '', quantity: 1, phone: "" });
                                 setSelectedTicket({} as ITicket);
                             }}
                         />}

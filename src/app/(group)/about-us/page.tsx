@@ -118,7 +118,7 @@ function AboutUs() {
                         <Image loading={'lazy'} src={'/img/cto.png'} className="w-full rounded-t-[4px]" alt="Book Events Africa Co-Founder/ CTO" width={274} height={100}    />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Ukpai  Chukwuemeka</h4>
-                            <p className=" text-[12px] font-normal text-primary-800">Co-Founder / CTO</p>
+                            <p className=" text-[14px] font-normal text-primary-800">Co-Founder / CTO</p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
                                 <a href="https://instagram.com/officialaimes" target="__blank">
 
@@ -141,7 +141,7 @@ function AboutUs() {
                         <Image loading={'lazy'} src={'/img/co-founder.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="Book Events Africa Co-Founder" width={274} height={100}   />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Shaka (Osas) Wisdom</h4>
-                            <p className=" text-[12px] font-normal text-primary-800">Co-Founder</p>
+                            <p className=" text-[14px] font-normal text-primary-800">Co-Founder</p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
 
                                 <a href="https://instagram.com/freedomng_" target="__blank">
@@ -165,7 +165,7 @@ function AboutUs() {
                         <Image loading={'lazy'} src={'/img/bea-ui-ux.png'} className="w-full rounded-t-[4px]" alt="Book Events Africa Product Designer" width={274} height={100}  />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Eze Chizoba</h4>
-                            <p className=" text-[12px] font-normal text-primary-800">Product Designer</p>
+                            <p className=" text-[14px] font-normal text-primary-800">Product Designer</p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
 
                                 <a href="https://instagram.com/ezeiam" target="__blank">
@@ -189,7 +189,7 @@ function AboutUs() {
                         <Image loading={'lazy'} src={'/img/hr.png'} className="w-full rounded-t-[4px]" alt="Book Events Africa Human Resources" width={274} height={100}   />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Becky Ihejika</h4>
-                            <p className=" text-[12px] font-normal text-primary-800">Human Resources</p>
+                            <p className=" text-[14px] font-normal text-primary-800">Human Resources</p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
                                 <a href="https://instagram.com/be_ecky" target="__blank">
 
@@ -212,7 +212,7 @@ function AboutUs() {
                         <Image loading={'lazy'} src={'/img/legal.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="Book Events Africa Legal Practitioner" width={274} height={100}   />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Vincent Ifechukwude Onukwu</h4>
-                            <p className=" text-[12px] font-normal text-primary-800">Legal Practitioner </p>
+                            <p className=" text-[14px] font-normal text-primary-800">Legal Practitioner </p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
                                 <a href="https://instagram.com/" target="__blank">
 
@@ -235,7 +235,7 @@ function AboutUs() {
                         <Image loading={'lazy'} src={'/img/socials.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100}  />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Doyinsola Akintola</h4>
-                            <p className=" text-[12px] font-normal text-primary-800">Social Media Manager</p>
+                            <p className=" text-[14px] font-normal text-primary-800">Social Media Manager</p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
                                 <a href="https://instagram.com/" target="__blank">
 
@@ -258,7 +258,7 @@ function AboutUs() {
                         <Image loading={'lazy'} src={'/img/bea-promoter-SE.jpg'} className="w-full rounded-t-[4px]" alt="Book Events Africa Promoter South East" width={274} height={100}    />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Prosper Chukwuebuka Opara</h4>
-                            <p className=" text-[12px] font-normal text-primary-800">Promoter (South East)</p>
+                            <p className=" text-[14px] font-normal text-primary-800">Promoter (South East)</p>
                             <div className="flex justify-center items-center gap-4 mt-[10px]">
                                 <a href="https://www.instagram.com/buk.zyyy?igsh=MXFhYnJ5cTUxZ3A2dA==" target="__blank">
 

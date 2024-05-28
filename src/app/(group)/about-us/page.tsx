@@ -22,8 +22,8 @@ function AboutUs() {
         <Navbar />
         <section className="bg-about-img  h-[608px] w-full bg-no-repeat bg-cover bg-top">
             <div className="flex justify-center items-center h-full flex-col">
-                <h1 className="text-white text-[50px] font-bold">About Us</h1>
-                <p className="text-white font-normal text-[20px] text-center">We provide essential features to manage your events seamlessly.</p>
+                <h1 className="text-white text-[25px] md:text-[50px] font-bold">About Us</h1>
+                <p className="text-white font-normal text-[16px] md:text-[20px] text-center">We provide essential features to manage your events seamlessly.</p>
             </div>
         </section>
 
@@ -115,7 +115,7 @@ function AboutUs() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-[48px]">
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/cto.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100}    />
+                        <Image loading={'lazy'} src={'/img/cto.png'} className="w-full rounded-t-[4px]" alt="Book Events Africa Co-Founder/ CTO" width={274} height={100}    />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Ukpai  Chukwuemeka</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Co-Founder / CTO</p>
@@ -138,7 +138,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/co-founder.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100}   />
+                        <Image loading={'lazy'} src={'/img/co-founder.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="Book Events Africa Co-Founder" width={274} height={100}   />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Shaka (Osas) Wisdom</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Co-Founder</p>
@@ -162,7 +162,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/bea-ui-ux.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100}  />
+                        <Image loading={'lazy'} src={'/img/bea-ui-ux.png'} className="w-full rounded-t-[4px]" alt="Book Events Africa Product Designer" width={274} height={100}  />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Eze Chizoba</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Product Designer</p>
@@ -186,7 +186,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/hr.png'} className="w-full rounded-t-[4px]" alt="" width={274} height={100}   />
+                        <Image loading={'lazy'} src={'/img/hr.png'} className="w-full rounded-t-[4px]" alt="Book Events Africa Human Resources" width={274} height={100}   />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Becky Ihejika</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Human Resources</p>
@@ -209,7 +209,7 @@ function AboutUs() {
                     </div>
 
                     <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
-                        <Image loading={'lazy'} src={'/img/legal.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="" width={274} height={100}   />
+                        <Image loading={'lazy'} src={'/img/legal.jpg'} className="w-full rounded-t-[4px] h-[276px] object-cover" alt="Book Events Africa Legal Practitioner" width={274} height={100}   />
                         <div className="text-center mt-[9px] pb-[20px]">
                             <h4 className="text-[18px] font-medium text-[#292D32]">Vincent Ifechukwude Onukwu</h4>
                             <p className=" text-[12px] font-normal text-primary-800">Legal Practitioner </p>
@@ -243,6 +243,29 @@ function AboutUs() {
                                 </a>
 
                                 <a href="https://linkedin.com/in/" target="__blank">
+
+                                    <LinkedIn className="w-[20px] h-[20px]" />
+                                </a>
+                                <a href={'https://x.com/'} target="__blank" >
+
+                                    <X className="w-[20px] h-[20px] " />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="w-full lg:w-[274px] bg-white  rounded-[4px] cursor-pointer">
+                        <Image loading={'lazy'} src={'/img/bea-promoter-SE.jpg'} className="w-full rounded-t-[4px]" alt="Book Events Africa Promoter South East" width={274} height={100}    />
+                        <div className="text-center mt-[9px] pb-[20px]">
+                            <h4 className="text-[18px] font-medium text-[#292D32]">Prosper Chukwuebuka Opara</h4>
+                            <p className=" text-[12px] font-normal text-primary-800">Promoter (South East)</p>
+                            <div className="flex justify-center items-center gap-4 mt-[10px]">
+                                <a href="https://www.instagram.com/buk.zyyy?igsh=MXFhYnJ5cTUxZ3A2dA==" target="__blank">
+
+                                    <Instagram className="w-[20px] h-[20px]" /> 
+                                </a>
+
+                                <a href="https://linkedin.com/in" target="__blank">
 
                                     <LinkedIn className="w-[20px] h-[20px]" />
                                 </a>

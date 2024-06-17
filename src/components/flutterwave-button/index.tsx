@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 export default forwardRef(function CustomFlutterWaveButton({ amount, email, title, ticketId, eventId, qty, description, close, disabled, ...props }: any, ref) {
 
     const config = {
-        public_key: process.env.NEXT_PUBLIC_ENV == 'production' ? process.env.NEXT_PUBLIC_FLW_KEY_LIVE! : process.env.NEXT_PUBLIC_FLW_KEY_TEST!,
+        public_key: process.env.NEXT_PUBLIC_ENV == 'production' ? process.env.NEXT_PRIVATE_FLW_KEY_LIVE! : process.env.NEXT_PUBLIC_FLW_KEY_TEST!,
         tx_ref: String(Date.now()),
         amount,
         currency: "NGN",

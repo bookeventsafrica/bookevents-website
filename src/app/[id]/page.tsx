@@ -5,6 +5,7 @@ import axios from "axios";
 import moment from "moment";
 import { Metadata } from "next";
 import dynamic from 'next/dynamic';
+import { isEventPast } from '@/utils';
 
 const EventSection = dynamic(() => import("../../components/sections/events"));
 const Navbar = dynamic(() => import('../../components/navbar'));
@@ -96,10 +97,9 @@ export default async function Home({ params }: { params: { id: string } }) {
                                 <h3 className="text-primary-800 font-400 text-[14px] ">{event?.type}</h3>
 
                             </div>
-                            {/* <div className="flex justify-between items-center mt-[10px]">
-                                <FavoriteSVG />
-                                <div className="text-[#707070] font-500 text-[14px] lg:text-[16px]">Available</div>
-                            </div> */}
+                            <div className="flex justify-between items-center mt-[10px]">
+                                <div className="text-[#707070] font-500 text-[14px] lg:text-[16px]">{isEventPast(event.eventDate) ? 'Expired' : 'Available'}</div>
+                            </div>
                             <div className="mt-[10px]">
                                 <p className="font-400 text-[12px] lg:text-[14px] text-[#707070] leading-[30px] ">{event?.details}</p>
 

@@ -3,14 +3,15 @@ import Button from "../button";
 import Item from "../events";
 import { IEvent } from "@/utils";
 import { useRouter } from "next/navigation";
+import { TypeEventsEnum } from "../events/type-events";
 
 export interface EventSection {
-    title?: string,
+    title?: TypeEventsEnum,
     events: IEvent[]
     more?: boolean
 }
 
-export default function EventSection({ title = 'Upcoming  Events', events, more = false }: EventSection) {
+export default function EventSection({ title = TypeEventsEnum.UPCOMING_EVENTS, events, more = false }: EventSection) {
 
     const router = useRouter()
 
@@ -24,7 +25,7 @@ export default function EventSection({ title = 'Upcoming  Events', events, more 
         </div>
 
         {more && events?.length >= 15 && <div className="flex justify-center mt-[60px]" >
-            <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px]" onClick={() => router.push('/discovery')} >See More Events</Button>
+            <Button variant="primary" className="font-medium text-[16px] px-[24px] py-[10px] rounded-[4px]" onClick={() => router.push(`/discovery?type=${TypeEventsEnum.UPCOMING_EVENTS === title ? TypeEventsEnum.UPCOMING_EVENTS : TypeEventsEnum.PAST_EVENTS}`)} >{`More ${TypeEventsEnum.UPCOMING_EVENTS === title ? TypeEventsEnum.UPCOMING_EVENTS : TypeEventsEnum.PAST_EVENTS}`}</Button>
         </div>}
     </section>
 }

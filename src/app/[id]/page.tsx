@@ -6,6 +6,7 @@ import moment from "moment";
 import { Metadata } from "next";
 import dynamic from 'next/dynamic';
 import { isEventPast } from '@/utils';
+import { TypeEventsEnum } from '@/components/events/type-events';
 
 const EventSection = dynamic(() => import("../../components/sections/events"));
 const Navbar = dynamic(() => import('../../components/navbar'));
@@ -126,7 +127,7 @@ export default async function Home({ params }: { params: { id: string } }) {
 
                 </section>
                 {event._id !== '66389392fa089ca534c30eb7' && <section className="lg:px-[6.18rem]  bg-[#F1F2F6] py-[50px]" >
-                    <EventSection title="Upcoming Events" events={upcomingEvents.length && upcomingEvents} />
+                    <EventSection title={TypeEventsEnum.UPCOMING_EVENTS} events={upcomingEvents.length && upcomingEvents} />
                 </section>}
 
 

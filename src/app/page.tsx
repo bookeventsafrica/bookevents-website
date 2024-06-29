@@ -4,7 +4,6 @@ import axios from "axios";
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Newsletter from '@/components/newsletter';
-import { IEvent } from '@/utils';
 import { TypeEventsEnum } from '../components/events/type-events';
 
 
@@ -14,6 +13,7 @@ const Navbar = dynamic(() => import('../components/navbar'));
 const Footer = dynamic(() => import('../components/footer'));
 
 
+export const revalidate = 1300;
 
 
 const fetchCategories = async () => {

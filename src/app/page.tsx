@@ -67,7 +67,7 @@ export default async function Home() {
           <div className="flex gap-[17px] flex-wrap justify-center lg:justify-between mb-[10px]">
 
             {categories?.length > 0 && categories.map((category: any) => {
-              return <Link href={`/discovery?category=${category._id}`} key={category._id}>
+              return <Link href={`/discovery?category=${category._id}&type=${TypeEventsEnum.DISCOVER_EVENTS}`} key={category._id}>
                 <div className={`w-[165px] h-[165px] rounded-full bg-no-repeat flex justify-center items-center text-white bg-cover`} style={{
                   backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${category.image})`
                 }}>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import dynamic from 'next/dynamic';
+import { TypeEventsEnum } from "@/components/events/type-events";
 
 const Navbar = dynamic(() => import('../../components/navbar'));
 const Footer = dynamic(() => import('../../components/footer'));
@@ -10,7 +11,7 @@ const Button = dynamic(() => import('../../components/button'));
 const EventSection = dynamic(() => import('../../components/sections/events'));
 const Search = dynamic(() => import('../../components/search'));
 
-export default function Discover(props: { searchParams: { s: string; category: string }; }) {
+export default function Discover(props: { searchParams: { s: string; category: string, type?: TypeEventsEnum }; }) {
     const [events, setEvents] = useState([]);
     //current page is offset
     const [offset, setOffset] = useState<number>(1);
@@ -25,7 +26,8 @@ export default function Discover(props: { searchParams: { s: string; category: s
         try {
             let searchTerm = props.searchParams.s ? props.searchParams.s : ''
             let categoryId = props.searchParams.category ? props.searchParams.category : ''
-            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1&search=${searchTerm}&offset=${offset}&categoryId=${categoryId}`)
+            let type = props.searchParams.type ? props.searchParams.type : ''
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV == 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/type/${type}?published=1&search=${searchTerm}&offset=${offset}&categoryId=${categoryId}`)
             setEvents(data.data);
             setOffset(data.offset)
             setLastPage(data.last_page);
@@ -56,7 +58,7 @@ export default function Discover(props: { searchParams: { s: string; category: s
 
                 <section className="lg:px-[6.18rem]  bg-[#F1F2F6] py-[50px]">
 
-                    <EventSection title="Discover Events" events={events} />
+                    <EventSection title={TypeEventsEnum.DISCOVER_EVENTS} events={events} />
                     {
                         events && events.length <= 0 && <div className="flex justify-center bg-[#F1F2F6] py-20">
                             <h3 className="text-[30px] font-bold">No result found : {props.searchParams.s}</h3>

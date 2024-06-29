@@ -1,17 +1,16 @@
 'use client';
 import { useRouter } from 'next/navigation'
 import Button from '../button'
-import Location from '/public/svg/map-pin.svg'
 import SearchIcon from '/public/svg/search.svg'
 import { useState } from 'react';
-// import ArrowDown from '/public/svg/arrow-down.svg'
+import { TypeEventsEnum } from '../events/type-events';
 
 export default function Search({ searchTerm }: { searchTerm?: string }) {
     const router = useRouter();
     const [value, setValue] = useState(searchTerm || '');
 
     function handleSearch() {
-        router.push(`/discovery?s=${value}`)
+        router.push(`/discovery?type=${TypeEventsEnum.DISCOVER_EVENTS}&s=${value}`)
     }
 
     return <div className='flex bg-white lg:h-min-[70px] rounded-[8px] items-center  mt-[50px] lg:mt-[76px] flex-wrap px-1 lg:p-[10px]'>

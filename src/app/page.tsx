@@ -5,20 +5,16 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Newsletter from '@/components/newsletter';
 import { IEvent } from '@/utils';
+import { TypeEventsEnum } from '../components/events/type-events';
 
 
-const EventSection = dynamic(() => import("../components/sections/events"));
+const EventSection = dynamic(() => import("../components/events/type-events"));
 const Search = dynamic(() => import('../components/search'));
 const Navbar = dynamic(() => import('../components/navbar'));
 const Footer = dynamic(() => import('../components/footer'));
 
-const fetch = async () => {
-  try {
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_ENV === 'development' ? process.env.NEXT_PUBLIC_API_DEV : process.env.NEXT_PUBLIC_API_PROD}/event/published?published=1&sort=1`)
-    return data.data
-  } catch (err) {
-  }
-}
+
+
 
 const fetchCategories = async () => {
   try {
@@ -33,7 +29,7 @@ export default async function Home() {
 
 
   const categories: any[] = await fetchCategories()
-  const events: IEvent[] = await fetch()
+  // const events: IEvent[] = await fetch()
 
 
 
@@ -52,7 +48,7 @@ export default async function Home() {
             unforgettable experiences
           </span> </h2>
           <p className="mx-auto  text-center w-auto lg:w-[620px] text-[14px] lg:text-[18px] mt-[24px] font-[400] mb-[48px]">
-          We curate extraordinary events that cater to diverse interests. From electrifying concerts and captivating workshops to thought-provoking conferences and immersive exhibitions, we offer something for everyone.
+            We curate extraordinary events that cater to diverse interests. From electrifying concerts and captivating workshops to thought-provoking conferences and immersive exhibitions, we offer something for everyone.
           </p>
 
           {/* <div className="flex justify-center">
@@ -66,7 +62,7 @@ export default async function Home() {
         </div>
       </div>
       <main >
-        <section className="lg:px-[6.18rem] my-[49px] cursor-pointer">
+        <section className="px-[10px] lg:px-[6.18rem] my-[49px] cursor-pointer">
           <h3 className="mb-[54px]">Browse by category</h3>
           <div className="flex gap-[17px] flex-wrap justify-center lg:justify-between mb-[10px]">
 
@@ -86,13 +82,8 @@ export default async function Home() {
         </section>
 
 
-        <section className="lg:px-[6.18rem] bg-[#F1F2F6] py-[50px] ">
-
-          <EventSection title="Events" events={events} more={true} />
-
-        </section>
-
-
+        <EventSection type={TypeEventsEnum.UPCOMING_EVENTS} />
+        <EventSection type={TypeEventsEnum.PAST_EVENTS} />
 
         <Newsletter />
       </main>

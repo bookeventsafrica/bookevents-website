@@ -7,10 +7,9 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import PostDetail from "@/components/blog/postDetails";
 import { Metadata } from "next";
-import { urlForImage } from "../../../../../sanity/lib/image";
 
 
-export const revalidate = 60;
+export const revalidate = 600;
 
 export async function generateStaticParams() {
     const posts = await client.fetch(postPathsQuery);
@@ -23,7 +22,7 @@ export async function generateMetadata({ params }: { params: any }): Promise<Met
         title: post?.title,
         description: post?.description,
 
-        keywords: [...post?.categories, post?.title, 'ticket', 'book events', 'africa', 'event ticketing platform', 'event booking', 'organize events', 'ticket sales'],
+        keywords: [...post?.categories, post?.title, 'book events blog', 'event ticket blog', 'event ticketing article', 'ticketing blog', 'book events', 'africa', 'event ticketing platform', 'event booking', 'organize events', 'ticket sales'],
         openGraph: {
             images: [{ url: post?.imageURL, width: 1200, height: 630 }],
             description: post?.description,

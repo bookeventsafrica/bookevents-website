@@ -81,7 +81,7 @@ const PostDetail = ({ post }: { post: SanityDocument }) => {
 
         {post?.body ? <PortableText value={post.body} components={Text} /> : null}
 
-        <div className="my-5">
+        <div className="my-5 flex gap-2">
             {post.categories.map((category: any) => {
                 return <div className="w-fit border-[1px] border-primary-500  text-primary-500 p-2 px-4 rounded-full text-[14px]" key={category._id}>
                     {category.title}

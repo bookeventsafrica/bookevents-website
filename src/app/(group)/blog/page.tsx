@@ -7,10 +7,12 @@ import { SanityDocument } from "next-sanity";
 import { Metadata } from "next";
 import Newsletter from "@/components/newsletter";
 
+export const revalidate = 600;
+
 export const metadata: Metadata = {
     title: 'Blog | Book Events Africa',
-    description: 'Book Event Africa offers essential event management features to help you organize your events seamlessly. Let us review and feature your events on BEA (Book Events Africa)',
-    keywords: ['Blog', 'event blog', 'bea blog', 'event ticket', 'event ticketing', 'event ticketing platform', 'book events africa', 'number 1 event booking platform', 'african events', 'ticket sales', 'party', 'event organizers', 'advanced ticketing solutions', 'ticketing solutions', 'event ticketing solutions', 'event planning', 'ticketing industry', 'smooth booking experience', 'smooth ticketing', ' Stress-free event management', 'Hassle-free event planning', 'Customer-focused services', 'Online ticketing']
+    description: 'Book Event Africa offers essential event management features to help you organize your events seamlessly. Let us review and feature your events on BEA (Book Events Africa) blog.',
+    keywords: ['Blog', 'event blog', 'bea blog', 'event ticket', 'event ticketing', 'event ticketing platform', 'book events africa', 'book events africa blog', 'number 1 event booking platform', 'african events', 'ticket sales', 'party blog', ' events blog', 'events review blog', 'event organizers', 'advanced ticketing solutions', 'ticketing solutions', 'event ticketing solutions', 'event planning', 'ticketing industry', 'smooth booking experience', 'smooth ticketing', ' Stress-free event management', 'Hassle-free event planning', 'Customer-focused services', 'Online ticketing']
 }
 
 

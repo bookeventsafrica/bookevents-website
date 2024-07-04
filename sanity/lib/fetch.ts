@@ -36,6 +36,7 @@ export async function sanityFetch<QueryResponse>({
       }),
       next: {
         ...(isDraftMode && { revalidate: 30 }),
+        revalidate: 600, // Revalidate every 10 minutes
         tags,
       },
     });

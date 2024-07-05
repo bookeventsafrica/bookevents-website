@@ -1,45 +1,33 @@
-import { MetadataRoute } from "next";
+import { SanityDocument } from "next-sanity";
+import { sanityFetch } from "../../sanity/lib/fetch";
+import { postsQuery } from "../../sanity/lib/queries";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://www.bookevents.africa",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 1,
-    },
-    {
-      url: "https://www.bookevents.africa/about-us",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: "https://www.bookevents.africa/blog",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
+const URL = "https://bookevents.africa";
 
-    {
-      url: "https://www.bookevents.africa/faqs",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
+export default async function sitemap() {
+  const blog = await sanityFetch<SanityDocument>({ query: postsQuery });
 
-    {
-      url: "https://www.bookevents.africa/privacy-policy",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
+  const posts = blog.map(({ slug, publishedAt }: any) => ({
+    url: `${URL}/blog/${slug.current}`,
+    lastModified: publishedAt,
+    changeFrequency: "weekly",
+    priority: 1,
+  }));
 
-    {
-      url: "https://www.bookevents.africa/terms-and-conditions",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-  ];
+  const routes = [
+    "",
+    "/blog",
+    "/about-us",
+    "/discovery",
+    "/faqs",
+    "/privacy-policy",
+    "/terms-and-conditions",
+  ].map((route) => ({
+    url: `${URL}${route}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 1,
+  }));
+
+  return [...routes, ...posts];
 }

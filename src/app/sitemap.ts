@@ -2,9 +2,11 @@ import { SanityDocument } from "next-sanity";
 import { sanityFetch } from "../../sanity/lib/fetch";
 import { postsQuery } from "../../sanity/lib/queries";
 
-const URL = "https://bookevents.africa";
-
 export default async function sitemap() {
+  let URL: string =
+    process.env.NODE_ENV === "development"
+      ? "https://staging.bookevents.africa"
+      : "https://bookevents.africa";
   const blog = await sanityFetch<SanityDocument>({ query: postsQuery });
 
   const posts = blog.map(({ slug, publishedAt }: any) => ({

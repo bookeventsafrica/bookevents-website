@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import CircleSvg from '/public/svg/circle.svg';
 import axios from "axios";
 import dynamic from 'next/dynamic';
@@ -38,7 +37,6 @@ export default async function Home() {
     <>
       {/* banner */}
       <div className=" bg-hero-home bg-no-repeat w-full h-[704px] lg:bg-cover  text-white bg-center">
-        <img src="/img/home.avif" style={{ display: 'none' }} alt="bg-image" loading="eager" />
         <Navbar />
 
 

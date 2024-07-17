@@ -14,6 +14,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn.sanity.io"
+      },
+      {
+        protocol: "https",
+        hostname: "book-events-africa.s3.eu-west-3.amazonaws.com"
       }
     ]
   }
